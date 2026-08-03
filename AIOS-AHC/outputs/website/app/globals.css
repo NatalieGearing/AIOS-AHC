@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+/*
+ * AHC brand theme — navy, gray and gold from the logo, plus two
+ * complementary accents (deeper bronze, lighter navy) for hover/tint states.
+ */
+:root {
+  --background: #ffffff;
+  --foreground: #111c49;
+
+  /* Borrowing-calculator tokens (shadcn-style), mapped to the AHC palette */
+  --primary: #111c49; /* brand navy */
+  --primary-foreground: #ffffff;
+  --secondary: #eceff3; /* light neutral track */
+  --secondary-foreground: #111c49;
+  --muted: #f4f5f7;
+  --muted-foreground: #5b5d62; /* brand gray */
+  --accent: #eef2fb; /* light navy tint */
+  --accent-foreground: #111c49;
+  --card: #ffffff;
+  --card-foreground: #111c49;
+  --popover: #ffffff;
+  --popover-foreground: #111c49;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #111c49;
+  --destructive: #dc2626;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --chart-1: #111c49; /* navy — rental income / cap bars */
+  --chart-2: #ab8742; /* brand gold — loan repayment */
+  --chart-5: #c3c7d0; /* neutral — non-binding caps */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-playfair);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-5: var(--chart-5);
+}
+
+@theme {
+  --color-brand-cream: #ece6e1;
+  --color-brand-gray-light: #efefef;
+  --color-brand-gray: #5b5d62;
+  /* Renamed from orange to gold in spirit only — class name kept as
+     brand-orange so every existing usage site-wide picks up the new value. */
+  --color-brand-orange: #ab8742;
+  --color-brand-navy: #111c49;
+  --color-brand-gold-dark: #8a6b35; /* darker bronze — hover/pressed states on gold */
+  --color-brand-navy-light: #24346e; /* lighter navy — subtle tints/hover on navy links */
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out both;
+}
+
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-ltr {
+  animation: marquee-ltr 40s linear infinite;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Range slider used by the borrowing calculator's InputField */
+.range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: var(--card);
+  border: 3px solid var(--primary);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+}
+
+.range-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: var(--card);
+  border: 3px solid var(--primary);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+  cursor: pointer;
+}
+
+.range-slider:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
