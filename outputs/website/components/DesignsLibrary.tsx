@@ -95,7 +95,7 @@ export default function DesignsLibrary() {
   return (
     <>
       {/* ---------------------------------------------------------- Hero */}
-      <section className="relative py-24 md:py-32 bg-[#111c49] text-white overflow-hidden">
+      <section className="relative flex min-h-[600px] items-center py-24 md:py-32 bg-[#111c49] text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/designs-hero.png"

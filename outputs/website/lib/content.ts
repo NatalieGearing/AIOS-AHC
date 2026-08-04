@@ -22,33 +22,6 @@ export const SERVICES: ServiceItem[] = [
     designsLabel: "View Rooming House Designs",
   },
   {
-    title: "Co-Living Developments",
-    slug: "co-living-developments",
-    image: "/images/service-coliving.png",
-    description:
-      "Premium, architecturally designed homes with private rooms alongside shared communal areas — fostering community while ensuring privacy and comfort.",
-    hasDetailPage: true,
-    designsLabel: "View Co-Living Designs",
-  },
-  {
-    title: "Dual Occupancy",
-    slug: "dual-occupancy",
-    image: "/images/service-duplex.png",
-    description:
-      "Two dwellings on a single block, engineered to maximise returns from your land while meeting all local planning requirements.",
-    hasDetailPage: true,
-    designsLabel: "View Dual Occupancy Designs",
-  },
-  {
-    title: "Boutique Townhouses",
-    slug: "boutique-townhouses",
-    image: "/images/service-townhouse.png",
-    description:
-      "From boutique three-lot developments to larger multi-stage complexes, balancing cost-efficiency with high-end aesthetic appeal.",
-    hasDetailPage: true,
-    designsLabel: "View Boutique Townhouse Designs",
-  },
-  {
     title: "Pre-fab Houses",
     slug: "pre-fab-houses",
     image: "/images/service-prefab.png",
@@ -114,11 +87,6 @@ export const REVIEWS: Review[] = [
     location: "Zillmere",
     text: "I was sceptical about the yields they quoted, but the numbers stacked up exactly as promised. The build was on time, on budget, and the cashflow has been outstanding. Affordable House Corp clearly know the investment space far better than any other builder I spoke to.",
   },
-  {
-    name: "Emma R.",
-    location: "Tingalpa",
-    text: "After our first dual-occupancy build went so smoothly, we immediately signed up for a second. The professionalism and honesty throughout the process gave us total confidence. We'll absolutely keep building with AHC for years to come.",
-  },
 ];
 
 export interface Supplier {
@@ -165,42 +133,6 @@ export const LISTINGS: Listing[] = [
     estYield: "8.5%",
     beds: 8,
     baths: 8,
-  },
-  {
-    slug: "zillmere-co-living-residence",
-    title: "Zillmere Co-Living Residence",
-    location: "Zillmere, QLD",
-    image: "/images/service-coliving.png",
-    propertyType: "Co-Living",
-    status: "Available",
-    guidePrice: "$850,000",
-    estYield: "7.9%",
-    beds: 6,
-    baths: 3,
-  },
-  {
-    slug: "boondall-duplex-investment",
-    title: "Boondall Duplex Investment",
-    location: "Boondall, QLD",
-    image: "/images/service-duplex.png",
-    propertyType: "Duplex",
-    status: "Available",
-    guidePrice: "$1,250,000",
-    estYield: "6.8%",
-    beds: 6,
-    baths: 4,
-  },
-  {
-    slug: "tingalpa-townhouse-development",
-    title: "Tingalpa Townhouse Development",
-    location: "Tingalpa, QLD",
-    image: "/images/service-townhouse.png",
-    propertyType: "Townhouse",
-    status: "Available",
-    guidePrice: "$780,000",
-    estYield: "5.9%",
-    beds: 4,
-    baths: 3,
   },
 ];
 

@@ -12,7 +12,7 @@ interface ComingSoonPageProps {
 export default function ComingSoonPage({ eyebrow, title, image, description, note }: ComingSoonPageProps) {
   return (
     <div>
-      <div className="relative h-72 sm:h-96">
+      <div className="relative min-h-[600px]">
         <Image src={image} alt={title} fill priority className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-brand-navy/10" />
         <div className="absolute inset-0 flex items-end">

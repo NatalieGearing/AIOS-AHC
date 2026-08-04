@@ -4,7 +4,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Investment Guides",
   description:
-    "Guides to help investors understand rooming accommodation, co-living, dual occupancy and other high-yield property types.",
+    "Guides to help investors understand rooming accommodation, pre-fab houses, land subdivisions and other high-yield property types.",
 });
 
 export default function InvestmentGuidesPage() {
@@ -18,8 +18,9 @@ export default function InvestmentGuidesPage() {
       </h1>
       <p className="mx-auto mt-6 max-w-xl text-brand-gray">
         We&apos;re putting together a library of guides covering rooming
-        accommodation, co-living, dual occupancy and more — helping you
-        understand the numbers before you build. This page is coming soon.
+        accommodation, pre-fab houses, land subdivisions and more — helping
+        you understand the numbers before you build. This page is coming
+        soon.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-4">
         <Link

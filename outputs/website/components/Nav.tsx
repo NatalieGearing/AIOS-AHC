@@ -11,7 +11,7 @@ const NAV_ITEMS = [
   {
     label: "Build With Us",
     children: [
-      { href: "/process", label: "Our Process" },
+      { href: "/about#process", label: "Our Process" },
       { href: "/calculator", label: "Build Calculator" },
       { href: "/colour-selection", label: "Colour Selection" },
     ],

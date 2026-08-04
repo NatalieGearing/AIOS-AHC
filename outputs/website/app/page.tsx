@@ -9,7 +9,7 @@ import ListingCard from "@/components/ListingCard";
 export const metadata = buildMetadata({
   title: "Turnkey Investment Property Builders",
   description:
-    "30 years building investment properties for Australian investors. Market leader in rooming accommodation, plus co-living, dual occupancy, townhouses, pre-fab and subdivisions — feasibility through to final sale.",
+    "30 years building investment properties across Brisbane and South East Queensland. Market leader in rooming accommodation, plus pre-fab houses and land subdivisions — feasibility through to final sale.",
 });
 
 export default function Home() {
@@ -38,9 +38,9 @@ export default function Home() {
             <span className="text-brand-orange">Built for Wealth.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-white">
-            We specialise in constructing high-yield rooming accommodation, co-living
-            homes, dual occupancy, townhouses, pre-fab houses and land subdivisions —
-            purpose-built for investors, from feasibility through to final sale.
+            We specialise in constructing high-yield rooming accommodation,
+            pre-fab houses and land subdivisions — purpose-built for
+            investors, from feasibility through to final sale.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
@@ -147,6 +147,13 @@ export default function Home() {
       </section>
 
       <section className="relative overflow-hidden bg-brand-navy py-10 text-white">
+        <Image
+          src="/images/watermark-a-white.png"
+          alt=""
+          aria-hidden="true"
+          fill
+          className="pointer-events-none select-none object-contain object-right opacity-5"
+        />
         <div className="relative mx-auto max-w-6xl px-6">
           <h2 className="font-serif text-[32px] font-bold">
             Why Investors Choose <span className="text-brand-orange">Affordable House Corp</span>
@@ -158,7 +165,7 @@ export default function Home() {
               the design elements that drive maximum return on investment.
             </p>
             <Link
-              href="/process"
+              href="/about#process"
               className="inline-block shrink-0 whitespace-nowrap text-sm font-semibold text-brand-orange hover:underline"
             >
               AHC Build Process &rarr;

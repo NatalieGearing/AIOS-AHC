@@ -6,9 +6,8 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 const PROPERTY_TYPES = [
   "Rooming Accommodation",
-  "Dual Occupancy",
-  "Land Subdivision",
   "Pre-fab House",
+  "Land Subdivision",
   "Not sure yet",
 ];
 

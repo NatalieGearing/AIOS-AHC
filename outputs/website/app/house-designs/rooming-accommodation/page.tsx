@@ -26,9 +26,9 @@ const FAQS = [
       "Rooming accommodation is assessed under Queensland's planning schemes as a distinct use class, with its own setback, parking, and amenity requirements. Councils have historically offered a streamlined accepted-development pathway for smaller rooming accommodation projects, though this is subject to change — our team tracks these requirements build to build so your approval pathway and program are set correctly from day one.",
   },
   {
-    question: "How is rooming accommodation different from co-living or a duplex?",
+    question: "How is rooming accommodation different from a duplex or co-living?",
     answer:
-      "A duplex (dual occupancy) creates two separate dwellings, each independently tenanted as a whole. Rooming accommodation and co-living both let out individual rooms within one dwelling, but co-living is typically positioned as a premium, architecturally designed product with more generous shared spaces, while rooming accommodation is built for maximum yield efficiency. We build all three — see our full range of services on the House Designs page.",
+      "A duplex (dual occupancy) creates two separate dwellings, each independently tenanted as a whole, while co-living is typically a premium, architecturally designed product with more generous shared spaces. Rooming accommodation sits apart from both — one dwelling with individually tenanted bedrooms, built for maximum yield efficiency. It's why Affordable House Corp specialises in this asset class — see our full range of rooming accommodation designs on the House Designs page.",
   },
 ];
 
@@ -52,7 +52,7 @@ export default function RoomingAccommodationPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <div className="relative h-72 sm:h-96">
+      <div className="relative min-h-[600px]">
         <Image
           src="/images/service-rooming.png"
           alt="Rooming accommodation"
@@ -149,7 +149,7 @@ export default function RoomingAccommodationPage() {
         As with all our projects, rooming accommodation builds are managed
         end-to-end — feasibility testing, land acquisition, construction, and
         final sale — through our{" "}
-        <Link href="/process" className="font-medium text-brand-orange hover:underline">
+        <Link href="/about#process" className="font-medium text-brand-orange hover:underline">
           turnkey process
         </Link>
         .

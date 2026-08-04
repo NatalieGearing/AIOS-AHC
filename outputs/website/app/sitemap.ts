@@ -15,7 +15,6 @@ const ROUTES: Array<{
     priority: 0.9,
   },
   { path: "/house-and-land", changeFrequency: "daily", priority: 0.9 },
-  { path: "/process", changeFrequency: "yearly", priority: 0.7 },
   { path: "/calculator", changeFrequency: "monthly", priority: 0.8 },
   { path: "/borrowing-calculator", changeFrequency: "monthly", priority: 0.8 },
   { path: "/colour-selection", changeFrequency: "monthly", priority: 0.6 },

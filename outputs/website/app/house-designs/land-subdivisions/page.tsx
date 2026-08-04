@@ -27,7 +27,7 @@ const FAQS = [
   {
     question: "Can I subdivide land and then build on it?",
     answer:
-      "Yes — subdivision and construction are often run as one connected project. Once new titles are created, we can build directly on the resulting lots using any of our house designs, from rooming accommodation through to dual occupancy and boutique townhouses.",
+      "Yes — subdivision and construction are often run as one connected project. Once new titles are created, we can build directly on the resulting lots using any of our house designs, including rooming accommodation and pre-fab houses.",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function LandSubdivisionsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <div className="relative h-72 sm:h-96">
+      <div className="relative min-h-[600px]">
         <Image
           src="/images/service-subdivision.png"
           alt="Land subdivision"
@@ -106,7 +106,7 @@ export default function LandSubdivisionsPage() {
         </p>
         <p className="mt-4 leading-7 text-brand-gray">
           As with all our projects, subdivision work runs through our{" "}
-          <Link href="/process" className="font-medium text-brand-orange hover:underline">
+          <Link href="/about#process" className="font-medium text-brand-orange hover:underline">
             turnkey process
           </Link>{" "}
           — and once titles are registered, we can build directly on the

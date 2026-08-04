@@ -60,45 +60,6 @@ export const HOUSES: EstimatorHouse[] = [
       "A six-bedroom rooming design built for maximum rental yield and tenant appeal, with six fully self-contained suites and generous shared amenity.",
     tag: "Top yield",
   },
-  {
-    id: "brushbox-duplex",
-    name: "Brushbox Dual Occupancy",
-    series: "Dual Occupancy",
-    rooms: "4 Beds",
-    beds: "4 Beds · 4 Bath",
-    area: 280,
-    price: 610000,
-    image: "/images/service-duplex.png",
-    description:
-      "A side-by-side dual occupancy home delivering two completely independent income streams on a single title — a proven strategy for investors seeking dual cashflow.",
-    tag: "Dual income",
-  },
-  {
-    id: "paperbark-coliving",
-    name: "Paperbark Co-Living 6",
-    series: "Co-Living Developments",
-    rooms: "6 Rooms",
-    beds: "6 Rooms · 6 Bath",
-    area: 380,
-    price: 780000,
-    image: "/images/service-coliving.png",
-    description:
-      "A premium co-living layout with generous shared living zones and six private ensuited suites. Built for the modern share-living market and superior returns.",
-    tag: "Premium",
-  },
-  {
-    id: "silvertop-townhouse",
-    name: "Silvertop Townhouse",
-    series: "Boutique Townhouses",
-    rooms: "3 Beds",
-    beds: "3 Beds · 2 Bath",
-    area: 220,
-    price: 480000,
-    image: "/images/service-townhouse.png",
-    description:
-      "A compact two-storey townhouse ideal for infill sites and growth corridors. Efficient, contemporary and highly liveable for owner-occupiers and tenants alike.",
-    tag: null,
-  },
 ];
 
 export interface EstimatorExtra {

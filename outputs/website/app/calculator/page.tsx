@@ -5,13 +5,13 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Build Calculator",
   description:
-    "Get an indicative estimate for your investment property build — rooming accommodation, dual occupancy, subdivision, or pre-fab.",
+    "Get an indicative estimate for your investment property build — rooming accommodation or pre-fab.",
 });
 
 export default function CalculatorPage() {
   return (
     <div>
-      <div className="relative flex h-[50vh] min-h-[400px] items-end overflow-hidden">
+      <div className="relative flex min-h-[600px] items-end overflow-hidden">
         <Image
           src="/images/calculator-hero.png"
           alt="Modern investment property townhouses"

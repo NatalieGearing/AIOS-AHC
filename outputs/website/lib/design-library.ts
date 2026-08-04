@@ -1,7 +1,7 @@
 export interface DesignLibraryEntry {
   id: number;
   title: string;
-  type: "rooming-accommodation" | "co-living" | "duplex" | "townhouse" | "prefab";
+  type: "rooming-accommodation" | "prefab";
   stories: "single" | "two";
   beds: number;
   baths?: number;

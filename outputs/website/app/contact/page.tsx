@@ -5,7 +5,7 @@ import { CONTACT } from "@/lib/content";
 export const metadata = buildMetadata({
   title: "Contact Us",
   description:
-    "Get in touch with Affordable House Corp about your investment property build — rooming accommodation, co-living, dual occupancy, townhouses, pre-fab or subdivisions.",
+    "Get in touch with Affordable House Corp about your investment property build — rooming accommodation, pre-fab houses or land subdivisions.",
 });
 
 export default function ContactPage() {

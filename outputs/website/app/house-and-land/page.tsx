@@ -5,13 +5,13 @@ import HouseAndLandGrid from "@/components/HouseAndLandGrid";
 export const metadata = buildMetadata({
   title: "House & Land",
   description:
-    "Current house and land investment opportunities from Affordable House Corp — rooming accommodation, co-living, duplex and townhouse listings across South East Queensland.",
+    "Current house and land investment opportunities from Affordable House Corp — rooming accommodation and pre-fab listings across South East Queensland.",
 });
 
 export default function HouseAndLandPage() {
   return (
     <div>
-      <div className="relative flex h-[50vh] min-h-[400px] items-end overflow-hidden">
+      <div className="relative flex min-h-[600px] items-end overflow-hidden">
         <Image
           src="/images/house-and-land-hero.png"
           alt="Modern Affordable House Corp home with double garage"
