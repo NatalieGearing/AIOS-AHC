@@ -71,6 +71,12 @@ const WHY_US = [
     description:
       "Based in Gumdale, with three decades of on-the-ground SEQ planning experience.",
   },
+  {
+    number: "06",
+    title: "Full-Scope Service Provider",
+    description:
+      "Beyond construction, we're backed by a trusted partner network across property management, surveying, town planning, project management, and furniture and styling — happy to share contacts and make the introduction.",
+  },
 ];
 
 const HERO_STATS = [
@@ -160,35 +166,53 @@ export default function AboutPage() {
       </div>
 
       {/* Stats strip */}
-      <section className="bg-brand-navy py-10">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 sm:grid-cols-4">
-          {HERO_STATS.map((stat) => (
-            <div key={stat.label} className="text-center sm:text-left">
-              <CountUp
-                end={stat.end}
-                prefix={stat.prefix}
-                suffix={stat.suffix}
-                className="font-serif text-3xl font-bold text-brand-orange sm:text-4xl"
-              />
-              <p className="mt-1 text-xs font-medium uppercase tracking-wide text-white/60">
-                {stat.label}
-              </p>
+      <section className="bg-brand-cream lg:h-[138px]">
+        <div className="grid lg:h-full lg:grid-cols-[minmax(325px,40%)_1fr]">
+          <div className="relative flex items-center justify-center bg-brand-navy px-8 py-5 text-left lg:py-0 lg:[clip-path:polygon(0_0,100%_0,78%_100%,0_100%)]">
+            <Image
+              src="/images/quote-graphic-invest.png"
+              alt="We don't follow the market – we built it. And we invest in it ourselves."
+              width={800}
+              height={231}
+              className="w-full max-w-xs lg:h-[100px] lg:w-auto lg:max-w-none"
+            />
+          </div>
+
+          <div className="flex items-center justify-end px-6 py-5 lg:py-0 lg:pl-12 lg:pr-[calc((100vw-1152px)/2+24px)]">
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+              {HERO_STATS.map((stat, idx) => (
+                <div key={stat.label} className="relative flex flex-col items-center justify-center text-center sm:px-4">
+                  {idx > 0 && (
+                    <span
+                      aria-hidden
+                      className="absolute -left-4 top-1/2 hidden h-1/2 w-px -translate-y-1/2 bg-brand-gray/20 sm:block"
+                    />
+                  )}
+                  <CountUp
+                    end={stat.end}
+                    prefix={stat.prefix}
+                    suffix={stat.suffix}
+                    className="font-sans text-[24px] font-normal text-brand-orange sm:text-[29px]"
+                  />
+                  <p className="mt-1 text-xs font-medium text-brand-gray">{stat.label}</p>
+                </div>
+              ))}
+              <div className="relative flex flex-col items-center justify-center text-center sm:px-4">
+                <span
+                  aria-hidden
+                  className="absolute -left-4 top-1/2 hidden h-1/2 w-px -translate-y-1/2 bg-brand-gray/20 sm:block"
+                />
+                <p className="font-sans text-[24px] font-normal text-brand-orange sm:text-[29px]">SEQ</p>
+                <p className="mt-1 whitespace-nowrap text-xs font-medium text-brand-gray">Specialist Knowledge</p>
+              </div>
             </div>
-          ))}
-          <div className="text-center sm:text-left">
-            <p className="font-serif text-3xl font-bold text-brand-orange sm:text-4xl">
-              SEQ
-            </p>
-            <p className="mt-1 text-xs font-medium uppercase tracking-wide text-white/60">
-              Built on local knowledge
-            </p>
           </div>
         </div>
       </section>
 
       {/* Our story */}
       <section id="story" className="scroll-mt-24 bg-white py-20 sm:py-28">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-2 md:gap-16">
+        <div className="grid gap-10 px-8 md:grid-cols-3">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
               Three Decades, One Clear Focus
@@ -197,27 +221,25 @@ export default function AboutPage() {
               Property that works <span className="text-brand-orange">harder.</span>
             </h2>
           </div>
-          <div className="grid gap-6 text-brand-gray sm:grid-cols-2">
-            <p className="leading-7">
-              Affordable House Corp is a Brisbane-based residential builder
-              specialising in investment-focused housing. Over three decades
-              we&apos;ve grown from a local builder into a 50-person team
-              delivering{" "}
-              <Link
-                href="/house-designs/rooming-accommodation"
-                className="font-medium text-brand-orange hover:underline"
-              >
-                rooming accommodation
-              </Link>{" "}
-              and other turnkey projects across South East Queensland.
-            </p>
-            <p className="leading-7">
-              Our purpose hasn&apos;t changed: bring together the site,
-              design, planning and construction knowledge needed to create
-              practical, high-yield homes — and give clients one accountable
-              team from first feasibility check to final sale.
-            </p>
-          </div>
+          <p className="text-justify leading-7 text-brand-gray">
+            Affordable House Corp is a Brisbane-based residential builder
+            specialising in investment-focused housing. Over three decades
+            we&apos;ve grown from a local builder into a 50-person team
+            delivering{" "}
+            <Link
+              href="/house-designs/rooming-accommodation"
+              className="font-medium text-brand-orange hover:underline"
+            >
+              rooming accommodation
+            </Link>{" "}
+            and other turnkey projects across South East Queensland.
+          </p>
+          <p className="text-justify leading-7 text-brand-gray">
+            Our purpose hasn&apos;t changed: bring together the site,
+            design, planning and construction knowledge needed to create
+            practical, high-yield investment properties — and give clients
+            one accountable team from first feasibility check to final sale.
+          </p>
         </div>
       </section>
 
