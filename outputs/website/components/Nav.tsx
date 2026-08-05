@@ -20,24 +20,45 @@ const NAV_ITEMS = [
     label: "Investor Resources",
     children: [
       { href: "/investor-resources/investment-guides", label: "Investment Guides" },
-      { href: "/investor-resources/finance-partners", label: "Our Finance Partners" },
+      {
+        label: "Finance & Investment",
+        children: [
+          { href: "/investor-resources/investment-calculator", label: "Feasibility Calculator" },
+          { href: "/borrowing-calculator", label: "Borrowing Calculator" },
+        ],
+      },
+      { href: "/investor-resources/finance-partners", label: "Our Partner Network" },
       { href: "/investor-resources/market-insights", label: "Current Market Insights" },
-      { href: "/investor-resources/investment-calculator", label: "Feasibility Calculator" },
-      { href: "/borrowing-calculator", label: "Borrowing Calculator" },
+      { href: "/investor-resources/compliance-centre", label: "Compliance Centre" },
+      { href: "/investor-resources/faqs", label: "FAQ's" },
+      { href: "/investor-resources/downloads-library", label: "Downloads Library" },
     ],
   },
   { href: "/about", label: "About Us" },
-  { href: "/contact", label: "Contact" },
 ] as const;
+
+const ChevronIcon = ({ open }: { open: boolean }) => (
+  <svg
+    aria-hidden
+    viewBox="0 0 20 20"
+    className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`}
+    fill="currentColor"
+  >
+    <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.293l3.71-4.06a.75.75 0 1 1 1.08 1.04l-4.24 4.65a.75.75 0 0 1-1.08 0l-4.24-4.65a.75.75 0 0 1 .02-1.06Z" />
+  </svg>
+);
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [desktopDropdown, setDesktopDropdown] = useState<string | null>(null);
+  const [desktopSubmenu, setDesktopSubmenu] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+  const [mobileSubmenu, setMobileSubmenu] = useState<string | null>(null);
 
   return (
     <header className="sticky top-0 z-50 border-b border-brand-gray-light bg-white">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="flex items-center justify-between px-6 py-4">
+        <div className="mx-auto flex w-full max-w-6xl items-center gap-24">
         <Link href="/" className="flex items-center">
           <Image
             src="/images/logo-ahc.png"
@@ -45,18 +66,21 @@ export default function Nav() {
             width={1394}
             height={213}
             priority
-            className="h-9 w-auto md:h-10"
+            className="h-[39.6px] w-auto md:h-11"
           />
         </Link>
 
-        <nav className="hidden gap-8 md:flex">
+        <nav className="hidden flex-1 items-center gap-5 whitespace-nowrap lg:gap-7 md:flex">
           {NAV_ITEMS.map((item) =>
             "children" in item ? (
               <div
                 key={item.label}
                 className="relative"
                 onMouseEnter={() => setDesktopDropdown(item.label)}
-                onMouseLeave={() => setDesktopDropdown((v) => (v === item.label ? null : v))}
+                onMouseLeave={() => {
+                  setDesktopDropdown((v) => (v === item.label ? null : v));
+                  setDesktopSubmenu(null);
+                }}
               >
                 <button
                   type="button"
@@ -67,28 +91,56 @@ export default function Nav() {
                   }
                 >
                   {item.label}
-                  <svg
-                    aria-hidden
-                    viewBox="0 0 20 20"
-                    className={`h-3.5 w-3.5 transition-transform ${desktopDropdown === item.label ? "rotate-180" : ""}`}
-                    fill="currentColor"
-                  >
-                    <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.293l3.71-4.06a.75.75 0 1 1 1.08 1.04l-4.24 4.65a.75.75 0 0 1-1.08 0l-4.24-4.65a.75.75 0 0 1 .02-1.06Z" />
-                  </svg>
+                  <ChevronIcon open={desktopDropdown === item.label} />
                 </button>
 
                 {desktopDropdown === item.label && (
                   <div className="absolute left-0 top-full pt-3">
-                    <div className="w-56 rounded-xl border border-brand-gray-light bg-white p-2 shadow-lg">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block rounded-md px-3 py-2 text-sm font-medium text-brand-gray hover:bg-brand-gray-light hover:text-brand-orange"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                    <div className="w-64 rounded-xl border border-brand-gray-light bg-white p-2 shadow-lg">
+                      {item.children.map((child) =>
+                        "children" in child ? (
+                          <div
+                            key={child.label}
+                            className="relative"
+                            onMouseEnter={() => setDesktopSubmenu(child.label)}
+                          >
+                            <button
+                              type="button"
+                              className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-medium text-brand-gray hover:bg-brand-gray-light hover:text-brand-orange ${
+                                desktopSubmenu === child.label ? "bg-brand-gray-light text-brand-orange" : ""
+                              }`}
+                            >
+                              {child.label}
+                              <svg aria-hidden viewBox="0 0 20 20" className="h-3.5 w-3.5 -rotate-90" fill="currentColor">
+                                <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.293l3.71-4.06a.75.75 0 1 1 1.08 1.04l-4.24 4.65a.75.75 0 0 1-1.08 0l-4.24-4.65a.75.75 0 0 1 .02-1.06Z" />
+                              </svg>
+                            </button>
+                            {desktopSubmenu === child.label && (
+                              <div className="absolute left-full top-0 pl-2">
+                                <div className="w-56 rounded-xl border border-brand-gray-light bg-white p-2 shadow-lg">
+                                  {child.children.map((grandchild) => (
+                                    <Link
+                                      key={grandchild.href}
+                                      href={grandchild.href}
+                                      className="block rounded-md px-3 py-2 text-sm font-medium text-brand-gray hover:bg-brand-gray-light hover:text-brand-orange"
+                                    >
+                                      {grandchild.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block rounded-md px-3 py-2 text-sm font-medium text-brand-gray hover:bg-brand-gray-light hover:text-brand-orange"
+                          >
+                            {child.label}
+                          </Link>
+                        )
+                      )}
                     </div>
                   </div>
                 )}
@@ -116,6 +168,14 @@ export default function Nav() {
           <span className="h-0.5 w-6 bg-brand-navy" />
           <span className="h-0.5 w-6 bg-brand-navy" />
         </button>
+        </div>
+
+        <Link
+          href="/contact"
+          className="ml-6 hidden shrink-0 whitespace-nowrap rounded-md bg-brand-navy px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-light md:inline-block"
+        >
+          Speak to an Expert
+        </Link>
       </div>
 
       {open && (
@@ -132,30 +192,57 @@ export default function Nav() {
                   }
                 >
                   {item.label}
-                  <svg
-                    aria-hidden
-                    viewBox="0 0 20 20"
-                    className={`h-3.5 w-3.5 transition-transform ${mobileDropdown === item.label ? "rotate-180" : ""}`}
-                    fill="currentColor"
-                  >
-                    <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.293l3.71-4.06a.75.75 0 1 1 1.08 1.04l-4.24 4.65a.75.75 0 0 1-1.08 0l-4.24-4.65a.75.75 0 0 1 .02-1.06Z" />
-                  </svg>
+                  <ChevronIcon open={mobileDropdown === item.label} />
                 </button>
                 {mobileDropdown === item.label && (
                   <div className="ml-3 flex flex-col gap-1 border-l border-brand-gray-light pl-3">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="rounded-md px-2 py-2 text-sm font-medium text-brand-gray hover:bg-brand-gray-light"
-                        onClick={() => {
-                          setOpen(false);
-                          setMobileDropdown(null);
-                        }}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                    {item.children.map((child) =>
+                      "children" in child ? (
+                        <div key={child.label}>
+                          <button
+                            type="button"
+                            className="flex w-full items-center justify-between rounded-md px-2 py-2 text-sm font-medium text-brand-gray hover:bg-brand-gray-light"
+                            aria-expanded={mobileSubmenu === child.label}
+                            onClick={() =>
+                              setMobileSubmenu((v) => (v === child.label ? null : child.label))
+                            }
+                          >
+                            {child.label}
+                            <ChevronIcon open={mobileSubmenu === child.label} />
+                          </button>
+                          {mobileSubmenu === child.label && (
+                            <div className="ml-3 flex flex-col gap-1 border-l border-brand-gray-light pl-3">
+                              {child.children.map((grandchild) => (
+                                <Link
+                                  key={grandchild.href}
+                                  href={grandchild.href}
+                                  className="rounded-md px-2 py-2 text-sm font-medium text-brand-gray hover:bg-brand-gray-light"
+                                  onClick={() => {
+                                    setOpen(false);
+                                    setMobileDropdown(null);
+                                    setMobileSubmenu(null);
+                                  }}
+                                >
+                                  {grandchild.label}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="rounded-md px-2 py-2 text-sm font-medium text-brand-gray hover:bg-brand-gray-light"
+                          onClick={() => {
+                            setOpen(false);
+                            setMobileDropdown(null);
+                          }}
+                        >
+                          {child.label}
+                        </Link>
+                      )
+                    )}
                   </div>
                 )}
               </div>
@@ -170,6 +257,13 @@ export default function Nav() {
               </Link>
             )
           )}
+          <Link
+            href="/contact"
+            className="mt-2 rounded-md bg-brand-orange px-4 py-2.5 text-center text-sm font-semibold text-brand-navy hover:bg-brand-orange/90"
+            onClick={() => setOpen(false)}
+          >
+            Speak to an Expert
+          </Link>
         </nav>
       )}
     </header>

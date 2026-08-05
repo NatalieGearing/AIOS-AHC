@@ -73,9 +73,9 @@ export const REVIEWS: Review[] = [
     text: "The quality of the finish was exactly what I asked for. The fixtures, the joinery, the attention to detail — it feels like a premium home, not a standard rental. My property manager has had no maintenance issues at all, which tells you everything about how well it was built.",
   },
   {
-    name: "David L.",
-    location: "Boondall QLD",
-    text: "What I valued most was the peace of mind. Building from interstate is nerve-wracking, but knowing AHC handled the council compliance, certifications and all the paperwork meant I could relax. A genuinely trusted builder who did exactly what they said they would.",
+    name: "Steve W",
+    location: "QLD",
+    text: "Thank you AHC for recently completing our two new dwellings in Brisbane, you made the whole process very easy for us and completion was ahead of schedule! Some of the advice AHC gave us during the build process proved invaluable and we ended up with a better product than we were expecting. We look forward to using AHC again!",
   },
   {
     name: "Jessica M.",

@@ -20,14 +20,14 @@ export default function CalculatorPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-14 text-white">
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-12 text-white">
           <span className="mb-3 block text-xs font-bold uppercase tracking-[0.2em] text-white/70">
             Design Studio
           </span>
-          <h1 className="max-w-3xl font-serif text-4xl font-bold leading-tight sm:text-5xl">
+          <h1 className="max-w-3xl font-serif text-4xl font-bold tracking-tight sm:text-5xl">
             Build Calculator
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/85">
+          <p className="mt-6 max-w-2xl text-lg text-white">
             Choose your design, personalise every detail, and see your build
             cost in real time. This is a starting point for planning, not a
             formal quote — reach out for exact figures.

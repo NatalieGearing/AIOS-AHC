@@ -16,11 +16,11 @@ export default function ComingSoonPage({ eyebrow, title, image, description, not
         <Image src={image} alt={title} fill priority className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-brand-navy/10" />
         <div className="absolute inset-0 flex items-end">
-          <div className="mx-auto w-full max-w-4xl px-6 pb-10">
+          <div className="mx-auto w-full max-w-6xl px-6 py-12">
             <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
               {eyebrow}
             </p>
-            <h1 className="mt-2 font-serif text-3xl font-bold text-white sm:text-4xl">
+            <h1 className="mt-3 max-w-3xl font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl">
               {title}
             </h1>
           </div>

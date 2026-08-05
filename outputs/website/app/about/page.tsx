@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Quote } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 import { buildMetadata, SITE_NAME, SITE_URL } from "@/lib/seo";
-import { CONTACT, SERVICES, REVIEWS } from "@/lib/content";
+import { CONTACT, SERVICES } from "@/lib/content";
 import CountUp from "@/components/CountUp";
 
 export const metadata = buildMetadata({
@@ -75,7 +75,7 @@ const WHY_US = [
     number: "06",
     title: "Full-Scope Service Provider",
     description:
-      "Beyond construction, we're backed by a trusted partner network across property management, surveying, town planning, project management, and furniture and styling — happy to share contacts and make the introduction.",
+      "Beyond construction, we have a trusted partner network across property management, surveying, town planning, project management, and furniture & styling we can connect you with.",
   },
 ];
 
@@ -84,8 +84,6 @@ const HERO_STATS = [
   { end: 100, prefix: "$", suffix: "m+", label: "Annual turnover" },
   { end: 50, label: "Team members" },
 ];
-
-const testimonial = REVIEWS.find((r) => r.name === "David L.")!;
 
 const aboutSchema = {
   "@context": "https://schema.org",
@@ -139,16 +137,16 @@ export default function AboutPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-brand-navy/10" />
         <div className="absolute inset-0 flex items-end">
-          <div className="mx-auto w-full max-w-4xl px-6 pb-10">
+          <div className="mx-auto w-full max-w-6xl px-6 py-12">
             <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
               About Affordable House Corp
             </p>
-            <h1 className="mt-2 font-serif text-3xl font-bold text-white sm:text-4xl">
+            <h1 className="mt-3 max-w-3xl font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Built for investment.
               <br />
               Backed by <span className="text-brand-orange">experience.</span>
             </h1>
-            <p className="mt-4 max-w-2xl text-lg text-white">
+            <p className="mt-6 max-w-2xl text-lg text-white">
               For 30 years, we&apos;ve delivered turnkey investment properties
               for clients across Brisbane and South East Queensland—from
               feasibility and land acquisition to construction and
@@ -156,10 +154,10 @@ export default function AboutPage() {
             </p>
             <a
               href="#story"
-              className="mt-6 inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-orange/90"
+              className="mt-6 inline-flex items-center gap-2 rounded-md bg-brand-orange/10 px-6 py-3 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-orange/20"
             >
               Discover Our Story
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              <ArrowDown className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -174,7 +172,7 @@ export default function AboutPage() {
               alt="We don't follow the market – we built it. And we invest in it ourselves."
               width={800}
               height={231}
-              className="w-full max-w-xs lg:h-[100px] lg:w-auto lg:max-w-none"
+              className="w-full max-w-[368px] lg:h-[115px] lg:w-auto lg:max-w-none"
             />
           </div>
 
@@ -212,13 +210,15 @@ export default function AboutPage() {
 
       {/* Our story */}
       <section id="story" className="scroll-mt-24 bg-white py-20 sm:py-28">
-        <div className="grid gap-10 px-8 md:grid-cols-3">
-          <div>
+        <div className="mx-auto grid max-w-[90rem] gap-10 px-8 md:grid-cols-4">
+          <div className="md:justify-self-end">
             <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
               Three Decades, One Clear Focus
             </p>
             <h2 className="mt-3 font-serif text-3xl font-bold text-brand-navy sm:text-4xl">
-              Property that works <span className="text-brand-orange">harder.</span>
+              Property that
+              <br />
+              works <span className="italic text-brand-orange">harder.</span>
             </h2>
           </div>
           <p className="text-justify leading-7 text-brand-gray">
@@ -228,7 +228,7 @@ export default function AboutPage() {
             delivering{" "}
             <Link
               href="/house-designs/rooming-accommodation"
-              className="font-medium text-brand-orange hover:underline"
+              className="text-brand-gray hover:underline"
             >
               rooming accommodation
             </Link>{" "}
@@ -240,33 +240,34 @@ export default function AboutPage() {
             practical, high-yield investment properties — and give clients
             one accountable team from first feasibility check to final sale.
           </p>
+          <p className="text-justify leading-7 text-brand-gray">
+            Based in Gumdale, our team brings three decades of
+            on-the-ground understanding of Brisbane and South East
+            Queensland sites, planning conditions, and investor demand. We
+            work across Brisbane and selected growth corridors throughout
+            the region.
+          </p>
         </div>
       </section>
 
       {/* Deep expertise */}
-      <section className="bg-brand-navy text-white">
-        <div className="mx-auto grid max-w-6xl md:grid-cols-2">
-          <div className="relative h-72 md:h-auto">
-            <Image
-              src="/images/ellen/exterior.png"
-              alt="Ellen 210 rooming accommodation exterior"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute bottom-6 right-6 rounded-lg bg-brand-orange px-6 py-4 text-center text-brand-navy shadow-lg">
-              <p className="font-serif text-2xl font-bold">30</p>
-              <p className="text-[11px] font-semibold uppercase tracking-wide">
-                Years of Expertise
-              </p>
-            </div>
-          </div>
-          <div className="px-6 py-16 md:px-12 md:py-20">
+      <section className="relative overflow-hidden bg-brand-navy text-white">
+        <Image
+          src="/images/expertise-section-bg.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="relative mx-auto max-w-6xl px-6 py-16 md:py-24">
+          <div className="max-w-lg">
             <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
               Brisbane&apos;s Rooming Accommodation Specialists
             </p>
             <h2 className="mt-3 font-serif text-3xl font-bold sm:text-4xl">
-              Deep expertise in{" "}
-              <span className="text-brand-orange">high-yield living.</span>
+              Deep expertise in high-yield
+              <br />
+              <span className="text-brand-orange">property.</span>
             </h2>
             <p className="mt-5 leading-7 text-white/75">
               Rooming accommodation isn&apos;t an add-on service for us —
@@ -299,25 +300,25 @@ export default function AboutPage() {
       {/* Turnkey process */}
       <section
         id="process"
-        className="scroll-mt-24 bg-white py-20 sm:py-28"
+        className="scroll-mt-24 bg-white py-10 sm:py-14"
       >
         <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-10 md:grid-cols-2 md:gap-16">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
-                One Team, The Full Journey
-              </p>
-              <h2 className="mt-3 font-serif text-3xl font-bold text-brand-navy sm:text-4xl">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
+              One Team, The Full Journey
+            </p>
+            <div className="mt-3 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+              <h2 className="font-serif text-3xl font-bold text-brand-navy sm:text-4xl lg:col-span-2">
                 From feasibility to finished{" "}
                 <span className="text-brand-orange">property.</span>
               </h2>
+              <p className="text-justify leading-7 text-brand-gray lg:col-start-3 lg:col-span-2">
+                Most builders begin at construction. We start earlier — testing
+                the opportunity and coordinating every moving part so investors
+                have one accountable team, and one clear line of sight, from
+                concept to completion.
+              </p>
             </div>
-            <p className="leading-7 text-brand-gray">
-              Most builders begin at construction. We start earlier — testing
-              the opportunity and coordinating every moving part so investors
-              have one accountable team, and one clear line of sight, from
-              concept to completion.
-            </p>
           </div>
 
           <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -329,7 +330,7 @@ export default function AboutPage() {
                 <h3 className="mt-3 text-lg font-semibold text-brand-navy">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm leading-6 text-brand-gray">
+                <p className="mt-2 text-justify text-sm leading-6 text-brand-gray">
                   {step.description}
                 </p>
               </div>
@@ -339,8 +340,8 @@ export default function AboutPage() {
       </section>
 
       {/* Why us */}
-      <section className="bg-brand-cream py-20 sm:py-28">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-2 md:gap-16">
+      <section className="bg-brand-cream py-10 sm:py-14">
+        <div className="mx-auto max-w-6xl px-6">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
               Why AHC
@@ -350,7 +351,7 @@ export default function AboutPage() {
               <span className="text-brand-orange">a number.</span>
             </h2>
           </div>
-          <ol className="space-y-6">
+          <ol className="mt-10 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
             {WHY_US.map((item) => (
               <li key={item.number} className="flex gap-4">
                 <span className="font-serif text-lg font-bold text-brand-orange">
@@ -368,91 +369,81 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="bg-brand-navy">
-        <div className="grid md:grid-cols-[1fr_2fr_1fr]">
-          <div className="relative hidden h-64 md:block">
-            <Image
-              src="/images/ellen/kitchen.png"
-              alt="Kitchen interior of an Affordable House Corp rooming home"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="px-6 py-16 text-center text-white sm:px-12">
-            <Quote className="mx-auto h-8 w-8 text-brand-orange" aria-hidden="true" />
-            <p className="mx-auto mt-6 max-w-2xl font-serif text-xl leading-relaxed sm:text-2xl">
-              {testimonial.text}
-            </p>
-            <p className="mt-6 text-sm font-semibold text-brand-orange">
-              {testimonial.name}
-              <span className="font-normal text-white/60"> — {testimonial.location}</span>
-            </p>
-          </div>
-          <div className="relative hidden h-64 md:block">
-            <Image
-              src="/images/bellatrix-210/exterior.png"
-              alt="Bellatrix 218 rooming accommodation exterior"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Local knowledge */}
-      <section className="bg-white py-20 sm:py-28">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-2 md:gap-16">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
-              Local Knowledge, Applied
-            </p>
-            <h2 className="mt-3 font-serif text-3xl font-bold text-brand-navy sm:text-4xl">
-              Built in Brisbane.
-              <br />
-              Built for <span className="text-brand-orange">South East Queensland.</span>
-            </h2>
-          </div>
-          <div>
-            <p className="leading-7 text-brand-gray">
-              Based in Gumdale, our team brings three decades of
-              on-the-ground understanding of Brisbane and South East
-              Queensland sites, planning conditions, and investor demand. We
-              work across Brisbane and selected growth corridors throughout
-              the region.
-            </p>
-            <Link
-              href="/contact"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-orange hover:underline"
-            >
-              Talk to our local team
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+      <section className="relative mx-auto max-w-[1899px] overflow-hidden aspect-[1899/493]">
+        <Image
+          src="/images/local-knowledge-bg.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-white/80" />
+        <div className="relative flex h-full items-center">
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 md:ml-auto md:mr-0 md:max-w-[49.5rem]">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
+                Local Knowledge, Applied
+              </p>
+              <h2 className="mt-3 font-serif text-3xl font-bold text-brand-navy sm:text-4xl">
+                Bring us the site
+                <br />
+                or bring us the <span className="italic text-brand-orange">idea.</span>
+              </h2>
+            </div>
+            <div>
+              <p className="text-justify leading-7 text-brand-gray">
+                We work with private investors, developers and property
+                professionals seeking well-considered residential projects
+                across Brisbane and South East Queensland.
+              </p>
+              <p className="mt-4 text-justify leading-7 text-brand-gray">
+                Some clients come to us with an existing site. Others involve
+                us before purchasing land. Either way, the first step is the
+                same: understand the opportunity, identify the constraints and
+                agree on the most useful way forward.
+              </p>
+              <Link
+                href="/contact"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-orange hover:underline"
+              >
+                Talk to our local team
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="bg-brand-navy py-20 text-center text-white sm:py-24">
+      <section className="border border-brand-gray-light bg-brand-gray-light py-20 text-center sm:py-24">
         <div className="mx-auto max-w-2xl px-6">
-          <h2 className="font-serif text-3xl font-bold sm:text-4xl">
-            Ready to start the{" "}
-            <span className="text-brand-orange">conversation?</span>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
+            Ready to start the conversation?
           </h2>
-          <p className="mt-4 text-white/75">
-            Speak with our Brisbane team about your site, your build, or your
-            next investment move.
+          <h3 className="mt-3 font-serif text-[36px] font-bold text-brand-navy sm:text-[45px]">
+            Bring us the opportunity.
+            <br />
+            <span className="font-serif italic font-semibold" style={{ letterSpacing: "0.98px" }}>We&apos;ll help test <span className="text-brand-orange">what&apos;s possible.</span></span>
+          </h3>
+          <p className="mt-4 text-brand-gray">
+            Tell us about your site or investment plans. Our team will
+            arrange an initial conversation and recommend the most useful
+            next step.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-brand-navy hover:bg-brand-orange/90"
+              className="inline-flex items-center gap-2 rounded-md border border-brand-navy px-6 py-3 text-xs font-bold uppercase tracking-wide text-brand-navy transition-colors hover:bg-brand-navy hover:text-white"
             >
               Enquire Now
+              <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L12.586 11H4a1 1 0 1 1 0-2h8.586l-2.293-2.293a1 1 0 0 1 0-1.414Z" clipRule="evenodd" />
+              </svg>
             </Link>
             <a
               href={CONTACT.phoneHref}
-              className="text-sm font-semibold text-white hover:text-brand-orange"
+              className="text-sm font-semibold text-brand-navy hover:text-brand-orange"
             >
               {CONTACT.phone}
             </a>

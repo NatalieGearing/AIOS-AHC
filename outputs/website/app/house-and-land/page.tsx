@@ -20,14 +20,14 @@ export default function HouseAndLandPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-14 text-white">
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-12 text-white">
           <span className="mb-3 block text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">
             Investment Opportunities
           </span>
-          <h1 className="max-w-3xl font-serif text-4xl font-bold leading-tight sm:text-5xl">
+          <h1 className="max-w-3xl font-serif text-4xl font-bold tracking-tight sm:text-5xl">
             House &amp; Land Packages
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-white">
+          <p className="mt-6 max-w-2xl text-lg text-white">
             Current investment-ready house and land opportunities, built and
             managed end-to-end by Affordable House Corp.
           </p>

@@ -115,12 +115,12 @@ export default function DesignsLibrary() {
               <span className="h-px w-8 bg-[#c9a35f]" aria-hidden="true" />
               House design library
             </span>
-            <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-[1.08]">
+            <h1 className="max-w-3xl font-serif text-4xl font-bold tracking-tight sm:text-5xl">
               Designed for Lifestyle.
               <br />
               Built for <span className="text-[#ab8742]">Returns</span>.
             </h1>
-            <p className="text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl">
+            <p className="mt-6 max-w-2xl text-lg text-white">
               Filter by property type, footprint and room count to find the design that fits your site.
             </p>
           </div>
