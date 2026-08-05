@@ -152,7 +152,7 @@ export default function Home() {
           alt=""
           aria-hidden="true"
           fill
-          className="pointer-events-none select-none object-contain object-right opacity-5"
+          className="pointer-events-none select-none object-cover object-right opacity-5"
         />
         <div className="relative mx-auto max-w-6xl px-6">
           <h2 className="font-serif text-[32px] font-bold">

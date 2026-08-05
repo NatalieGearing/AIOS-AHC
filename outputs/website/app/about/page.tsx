@@ -129,8 +129,8 @@ export default function AboutPage() {
       {/* Hero */}
       <div className="relative min-h-[600px]">
         <Image
-          src="/images/about-hero.png"
-          alt="Architectural plans, a hard hat and a coffee on a site desk"
+          src="/images/about-hero-2.png"
+          alt="Two people reviewing building plans with a hard hat and tools on the table"
           fill
           priority
           className="object-cover"
@@ -154,7 +154,7 @@ export default function AboutPage() {
             </p>
             <a
               href="#story"
-              className="mt-6 inline-flex items-center gap-2 rounded-md bg-brand-orange/10 px-6 py-3 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-orange/20"
+              className="mt-6 inline-flex items-center gap-2 rounded-md bg-brand-orange/50 px-6 py-3 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-orange/60"
             >
               Discover Our Story
               <ArrowDown className="h-4 w-4" aria-hidden="true" />
@@ -380,7 +380,7 @@ export default function AboutPage() {
         />
         <div className="absolute inset-0 bg-white/80" />
         <div className="relative flex h-full items-center">
-          <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 md:ml-auto md:mr-0 md:max-w-[49.5rem]">
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 pl-[18px] pr-6 md:ml-auto md:mr-0 md:w-1/2">
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
                 Local Knowledge, Applied
@@ -391,7 +391,7 @@ export default function AboutPage() {
                 or bring us the <span className="italic text-brand-orange">idea.</span>
               </h2>
             </div>
-            <div>
+            <div className="md:max-w-[60%]">
               <p className="text-justify leading-7 text-brand-gray">
                 We work with private investors, developers and property
                 professionals seeking well-considered residential projects
@@ -416,15 +416,15 @@ export default function AboutPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="border border-brand-gray-light bg-brand-gray-light py-20 text-center sm:py-24">
+      <section className="border border-brand-gray-light bg-brand-gray-light py-10 text-center sm:py-12">
         <div className="mx-auto max-w-2xl px-6">
           <h2 className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
             Ready to start the conversation?
           </h2>
           <h3 className="mt-3 font-serif text-[36px] font-bold text-brand-navy sm:text-[45px]">
-            Bring us the opportunity.
+            Show us the opportunity.
             <br />
-            <span className="font-serif italic font-semibold" style={{ letterSpacing: "0.98px" }}>We&apos;ll help test <span className="text-brand-orange">what&apos;s possible.</span></span>
+            <span className="block whitespace-nowrap font-serif text-[22px] italic font-bold sm:text-[32px] lg:text-[45px]" style={{ letterSpacing: "0.98px" }}>We&apos;ll help test <span className="text-brand-orange">what&apos;s possible</span></span>
           </h3>
           <p className="mt-4 text-brand-gray">
             Tell us about your site or investment plans. Our team will
