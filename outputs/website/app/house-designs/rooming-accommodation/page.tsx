@@ -60,8 +60,8 @@ export default function RoomingAccommodationPage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-brand-navy/10" />
-        <div className="absolute inset-0 flex items-end">
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-900/55 to-brand-orange/10" />
+        <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6 py-12">
             <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
               Flagship Service
@@ -149,7 +149,7 @@ export default function RoomingAccommodationPage() {
         As with all our projects, rooming accommodation builds are managed
         end-to-end — feasibility testing, land acquisition, construction, and
         final sale — through our{" "}
-        <Link href="/about#process" className="font-medium text-brand-orange hover:underline">
+        <Link href="/our-process" className="font-medium text-brand-orange hover:underline">
           turnkey process
         </Link>
         .

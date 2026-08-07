@@ -11,7 +11,7 @@ export const metadata = buildMetadata({
 export default function HouseAndLandPage() {
   return (
     <div>
-      <div className="relative flex min-h-[600px] items-end overflow-hidden">
+      <div className="relative flex min-h-[600px] items-center overflow-hidden">
         <Image
           src="/images/house-and-land-hero.png"
           alt="Modern Affordable House Corp home with double garage"
@@ -19,7 +19,7 @@ export default function HouseAndLandPage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-900/55 to-brand-orange/10" />
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-12 text-white">
           <span className="mb-3 block text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">
             Investment Opportunities

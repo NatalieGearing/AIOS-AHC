@@ -11,7 +11,7 @@ const NAV_ITEMS = [
   {
     label: "Build With Us",
     children: [
-      { href: "/about#process", label: "Our Process" },
+      { href: "/our-process", label: "Our Process" },
       { href: "/calculator", label: "Build Calculator" },
       { href: "/colour-selection", label: "Colour Selection" },
     ],
@@ -23,7 +23,7 @@ const NAV_ITEMS = [
       {
         label: "Finance & Investment",
         children: [
-          { href: "/investor-resources/investment-calculator", label: "Feasibility Calculator" },
+          { href: "/investor-resources/feasibility-calculator", label: "Feasibility Calculator" },
           { href: "/borrowing-calculator", label: "Borrowing Calculator" },
         ],
       },
@@ -103,6 +103,9 @@ export default function Nav() {
                             key={child.label}
                             className="relative"
                             onMouseEnter={() => setDesktopSubmenu(child.label)}
+                            onMouseLeave={() =>
+                              setDesktopSubmenu((v) => (v === child.label ? null : v))
+                            }
                           >
                             <button
                               type="button"

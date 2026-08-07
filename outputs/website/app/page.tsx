@@ -165,7 +165,7 @@ export default function Home() {
               the design elements that drive maximum return on investment.
             </p>
             <Link
-              href="/about#process"
+              href="/our-process"
               className="inline-block shrink-0 whitespace-nowrap text-sm font-semibold text-brand-orange hover:underline"
             >
               AHC Build Process &rarr;
@@ -439,7 +439,7 @@ export default function Home() {
                 before you commit to a build.
               </p>
               <Link
-                href="/investor-resources/investment-calculator"
+                href="/investor-resources/feasibility-calculator"
                 className="mt-6 inline-flex items-center gap-2 self-start rounded-md border border-brand-navy px-6 py-3 text-xs font-bold uppercase tracking-wide text-brand-navy transition-colors hover:bg-brand-navy hover:text-white lg:mt-auto"
               >
                 Check Feasibility

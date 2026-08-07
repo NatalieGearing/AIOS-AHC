@@ -14,8 +14,8 @@ export default function ComingSoonPage({ eyebrow, title, image, description, not
     <div>
       <div className="relative min-h-[600px]">
         <Image src={image} alt={title} fill priority className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-brand-navy/10" />
-        <div className="absolute inset-0 flex items-end">
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-900/55 to-brand-orange/10" />
+        <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6 py-12">
             <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
               {eyebrow}

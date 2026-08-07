@@ -135,8 +135,8 @@ export default function AboutPage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-brand-navy/10" />
-        <div className="absolute inset-0 flex items-end">
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-900/55 to-brand-orange/10" />
+        <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6 py-12">
             <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
               About Affordable House Corp
@@ -154,7 +154,7 @@ export default function AboutPage() {
             </p>
             <a
               href="#story"
-              className="mt-6 inline-flex items-center gap-2 rounded-md bg-brand-orange/50 px-6 py-3 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-orange/60"
+              className="mt-6 inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-orange/90"
             >
               Discover Our Story
               <ArrowDown className="h-4 w-4" aria-hidden="true" />
@@ -336,6 +336,14 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+
+          <Link
+            href="/our-process"
+            className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-brand-orange hover:underline"
+          >
+            See our full process
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </div>
       </section>
 
@@ -388,7 +396,13 @@ export default function AboutPage() {
               <h2 className="mt-3 font-serif text-3xl font-bold text-brand-navy sm:text-4xl">
                 Bring us the site
                 <br />
-                or bring us the <span className="italic text-brand-orange">idea.</span>
+                or bring us the{" "}
+                <span
+                  className="font-serif italic font-bold text-brand-orange"
+                  style={{ letterSpacing: "0.98px" }}
+                >
+                  idea.
+                </span>
               </h2>
             </div>
             <div className="md:max-w-[60%]">

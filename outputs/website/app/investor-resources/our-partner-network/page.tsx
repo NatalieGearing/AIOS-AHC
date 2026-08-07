@@ -38,7 +38,7 @@ const SPECIALISTS = [
     mark: "BMT",
     logo: "/images/partners/bmt.png",
     website: "https://www.bmtqs.com.au/",
-    stage: "Depreciation",
+    stage: "Quantity Surveying",
     category: "Quantity Surveying",
     name: "BMT Quantity Surveyors",
     description:
@@ -71,7 +71,7 @@ const SPECIALISTS = [
     mark: "F&H",
     logo: "/images/partners/fox-and-hound.png",
     website: "https://www.foxandhoundlandscaping.com.au",
-    stage: "Site works & landscaping",
+    stage: "Landscaping",
     category: "Landscaping & Construction",
     name: "Fox & Hound Landscaping",
     description:
@@ -116,7 +116,7 @@ export default function OurPartnerNetworkPage() {
             <h1 className="mt-3 max-w-2xl font-serif text-4xl font-bold tracking-tight sm:text-5xl">
               Trusted specialists.
               <br />
-              <span className="text-brand-orange">One connected journey.</span>
+              One connected <span className="text-brand-orange">journey.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-white/75">
               Property projects call for more than a great builder. We work
@@ -203,10 +203,7 @@ export default function OurPartnerNetworkPage() {
                   </div>
                 )}
 
-                <p className="mt-6 text-xs font-bold uppercase tracking-widest text-brand-orange">
-                  {partner.category}
-                </p>
-                <h3 className="mt-2 font-serif text-xl font-bold text-brand-navy">
+                <h3 className="mt-6 font-serif text-xl font-bold text-brand-navy">
                   <a
                     href={partner.website}
                     target="_blank"
@@ -258,8 +255,8 @@ export default function OurPartnerNetworkPage() {
             Need a specialist?
           </p>
           <h2 className="mt-3 font-serif text-3xl font-bold text-brand-navy sm:text-4xl">
-            We&apos;ll make the{" "}
-            <span className="text-brand-orange">right introduction.</span>
+            We&apos;ll make the right{" "}
+            <span className="text-brand-orange">introduction.</span>
           </h2>
           <p className="mt-4 text-brand-gray">
             Tell us what your project needs and our team can connect you with

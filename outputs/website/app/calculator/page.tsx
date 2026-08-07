@@ -11,7 +11,7 @@ export const metadata = buildMetadata({
 export default function CalculatorPage() {
   return (
     <div>
-      <div className="relative flex min-h-[600px] items-end overflow-hidden">
+      <div className="relative flex min-h-[600px] items-center overflow-hidden">
         <Image
           src="/images/calculator-hero.png"
           alt="Modern investment property townhouses"
@@ -19,7 +19,7 @@ export default function CalculatorPage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-900/55 to-brand-orange/10" />
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-12 text-white">
           <span className="mb-3 block text-xs font-bold uppercase tracking-[0.2em] text-white/70">
             Design Studio

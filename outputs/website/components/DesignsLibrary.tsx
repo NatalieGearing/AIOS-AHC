@@ -106,7 +106,7 @@ export default function DesignsLibrary() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#111c49] via-[#111c49]/85 to-[#111c49]/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-900/55 to-brand-orange/10" />
         </div>
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">

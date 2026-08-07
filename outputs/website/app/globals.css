@@ -108,6 +108,14 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
+/* Headings use Playfair Display (font-serif) site-wide, except H1/H2 which
+   use Noto Serif Display — kept as an element+class override so H3s and
+   sans-serif labels styled as h1/h2 (e.g. eyebrow text) are unaffected. */
+h1.font-serif,
+h2.font-serif {
+  font-family: var(--font-noto-serif-display), serif;
+}
+
 /* Range slider used by the borrowing calculator's InputField */
 .range-slider {
   -webkit-appearance: none;

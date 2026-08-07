@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display, Noto_Serif_Display } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -20,6 +20,11 @@ const playfair = Playfair_Display({
   style: ["normal", "italic"],
 });
 
+const notoSerifDisplay = Noto_Serif_Display({
+  variable: "--font-noto-serif-display",
+  subsets: ["latin"],
+});
+
 export const metadata = buildMetadata({});
 
 export default function RootLayout({
@@ -30,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${notoSerifDisplay.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <Nav />
