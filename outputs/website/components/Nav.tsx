@@ -27,7 +27,7 @@ const NAV_ITEMS = [
           { href: "/borrowing-calculator", label: "Borrowing Calculator" },
         ],
       },
-      { href: "/investor-resources/finance-partners", label: "Our Partner Network" },
+      { href: "/investor-resources/our-partner-network", label: "Our Partner Network" },
       { href: "/investor-resources/market-insights", label: "Current Market Insights" },
       { href: "/investor-resources/compliance-centre", label: "Compliance Centre" },
       { href: "/investor-resources/faqs", label: "FAQ's" },

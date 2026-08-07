@@ -90,11 +90,12 @@
 .heroSvg .heroWin { fill: var(--h-win); }
 .hero::before {
   content: ""; position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(176deg,
-    color-mix(in srgb, var(--card) 82%, transparent) 0%,
-    color-mix(in srgb, var(--card) 42%, transparent) 30%,
-    color-mix(in srgb, var(--card) 8%, transparent) 52%,
-    transparent 66%);
+  background: linear-gradient(100deg,
+    color-mix(in srgb, var(--card) 92%, transparent) 0%,
+    color-mix(in srgb, var(--card) 84%, transparent) 28%,
+    color-mix(in srgb, var(--card) 55%, transparent) 50%,
+    color-mix(in srgb, var(--card) 15%, transparent) 70%,
+    transparent 85%);
 }
 .heroContent {
   position: relative; z-index: 2; align-self: flex-start;
