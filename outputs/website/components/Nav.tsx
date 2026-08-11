@@ -29,12 +29,27 @@ const NAV_ITEMS = [
       },
       { href: "/investor-resources/our-partner-network", label: "Our Partner Network" },
       { href: "/investor-resources/market-insights", label: "Current Market Insights" },
-      { href: "/investor-resources/compliance-centre", label: "Compliance Centre" },
+      {
+        href: "/investor-resources/compliance-centre",
+        label: "Compliance Centre",
+        children: [
+          { href: "/investor-resources/compliance-centre", label: "Compliance Made Clearer" },
+          { href: "/investor-resources/finding-a-property-manager", label: "Finding a Property Manager" },
+        ],
+      },
       { href: "/investor-resources/faqs", label: "FAQ's" },
       { href: "/investor-resources/downloads-library", label: "Downloads Library" },
     ],
   },
-  { href: "/about", label: "About Us" },
+  { href: "/projects", label: "Projects" },
+  {
+    label: "About Us",
+    children: [
+      { href: "/about", label: "About Us" },
+      { href: "/about/philanthropy", label: "Philanthropy" },
+      { href: "/about/youtube-channel", label: "Youtube Channel" },
+    ],
+  },
 ] as const;
 
 const ChevronIcon = ({ open }: { open: boolean }) => (
@@ -107,17 +122,31 @@ export default function Nav() {
                               setDesktopSubmenu((v) => (v === child.label ? null : v))
                             }
                           >
-                            <button
-                              type="button"
-                              className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-medium text-brand-gray hover:bg-brand-gray-light hover:text-brand-orange ${
-                                desktopSubmenu === child.label ? "bg-brand-gray-light text-brand-orange" : ""
-                              }`}
-                            >
-                              {child.label}
-                              <svg aria-hidden viewBox="0 0 20 20" className="h-3.5 w-3.5 -rotate-90" fill="currentColor">
-                                <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.293l3.71-4.06a.75.75 0 1 1 1.08 1.04l-4.24 4.65a.75.75 0 0 1-1.08 0l-4.24-4.65a.75.75 0 0 1 .02-1.06Z" />
-                              </svg>
-                            </button>
+                            {"href" in child ? (
+                              <Link
+                                href={child.href}
+                                className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-medium text-brand-gray hover:bg-brand-gray-light hover:text-brand-orange ${
+                                  desktopSubmenu === child.label ? "bg-brand-gray-light text-brand-orange" : ""
+                                }`}
+                              >
+                                {child.label}
+                                <svg aria-hidden viewBox="0 0 20 20" className="h-3.5 w-3.5 -rotate-90" fill="currentColor">
+                                  <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.293l3.71-4.06a.75.75 0 1 1 1.08 1.04l-4.24 4.65a.75.75 0 0 1-1.08 0l-4.24-4.65a.75.75 0 0 1 .02-1.06Z" />
+                                </svg>
+                              </Link>
+                            ) : (
+                              <button
+                                type="button"
+                                className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-medium text-brand-gray hover:bg-brand-gray-light hover:text-brand-orange ${
+                                  desktopSubmenu === child.label ? "bg-brand-gray-light text-brand-orange" : ""
+                                }`}
+                              >
+                                {child.label}
+                                <svg aria-hidden viewBox="0 0 20 20" className="h-3.5 w-3.5 -rotate-90" fill="currentColor">
+                                  <path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.293l3.71-4.06a.75.75 0 1 1 1.08 1.04l-4.24 4.65a.75.75 0 0 1-1.08 0l-4.24-4.65a.75.75 0 0 1 .02-1.06Z" />
+                                </svg>
+                              </button>
+                            )}
                             {desktopSubmenu === child.label && (
                               <div className="absolute left-full top-0 pl-2">
                                 <div className="w-56 rounded-xl border border-brand-gray-light bg-white p-2 shadow-lg">
@@ -174,8 +203,14 @@ export default function Nav() {
         </div>
 
         <Link
+          href="/portal"
+          className="ml-6 hidden shrink-0 whitespace-nowrap rounded-md border border-brand-navy px-4 py-2.5 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-navy hover:text-white md:inline-block"
+        >
+          Customer Portal
+        </Link>
+        <Link
           href="/contact"
-          className="ml-6 hidden shrink-0 whitespace-nowrap rounded-md bg-brand-navy px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-light md:inline-block"
+          className="ml-3 hidden shrink-0 whitespace-nowrap rounded-md bg-brand-navy px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-light md:inline-block"
         >
           Speak to an Expert
         </Link>
@@ -202,17 +237,34 @@ export default function Nav() {
                     {item.children.map((child) =>
                       "children" in child ? (
                         <div key={child.label}>
-                          <button
-                            type="button"
-                            className="flex w-full items-center justify-between rounded-md px-2 py-2 text-sm font-medium text-brand-gray hover:bg-brand-gray-light"
-                            aria-expanded={mobileSubmenu === child.label}
-                            onClick={() =>
-                              setMobileSubmenu((v) => (v === child.label ? null : child.label))
-                            }
-                          >
-                            {child.label}
-                            <ChevronIcon open={mobileSubmenu === child.label} />
-                          </button>
+                          <div className="flex w-full items-center justify-between rounded-md hover:bg-brand-gray-light">
+                            {"href" in child ? (
+                              <Link
+                                href={child.href}
+                                className="flex-1 px-2 py-2 text-sm font-medium text-brand-gray"
+                                onClick={() => {
+                                  setOpen(false);
+                                  setMobileDropdown(null);
+                                  setMobileSubmenu(null);
+                                }}
+                              >
+                                {child.label}
+                              </Link>
+                            ) : (
+                              <span className="flex-1 px-2 py-2 text-sm font-medium text-brand-gray">{child.label}</span>
+                            )}
+                            <button
+                              type="button"
+                              className="px-2 py-2"
+                              aria-label={`Toggle ${child.label} submenu`}
+                              aria-expanded={mobileSubmenu === child.label}
+                              onClick={() =>
+                                setMobileSubmenu((v) => (v === child.label ? null : child.label))
+                              }
+                            >
+                              <ChevronIcon open={mobileSubmenu === child.label} />
+                            </button>
+                          </div>
                           {mobileSubmenu === child.label && (
                             <div className="ml-3 flex flex-col gap-1 border-l border-brand-gray-light pl-3">
                               {child.children.map((grandchild) => (
@@ -260,6 +312,13 @@ export default function Nav() {
               </Link>
             )
           )}
+          <Link
+            href="/portal"
+            className="mt-2 rounded-md border border-brand-navy px-4 py-2.5 text-center text-sm font-semibold text-brand-navy hover:bg-brand-navy hover:text-white"
+            onClick={() => setOpen(false)}
+          >
+            Customer Portal
+          </Link>
           <Link
             href="/contact"
             className="mt-2 rounded-md bg-brand-orange px-4 py-2.5 text-center text-sm font-semibold text-brand-navy hover:bg-brand-orange/90"
