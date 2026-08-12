@@ -14,12 +14,14 @@ const NAV_ITEMS = [
       { href: "/our-process", label: "Our Process" },
       { href: "/calculator", label: "Build Calculator" },
       { href: "/colour-selection", label: "Colour Selection" },
+      { href: "/house-designs/land-subdivisions", label: "Land Subdivisions" },
     ],
   },
   {
     label: "Investor Resources",
     children: [
       { href: "/investor-resources/investment-guides", label: "Investment Guides" },
+      { href: "/house-designs/rooming-accommodation", label: "What is rooming accommodation?" },
       {
         label: "Finance & Investment",
         children: [

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 
@@ -201,16 +200,16 @@ export default function PhilanthropyPage() {
       </section>
 
       {/* Follow / CTA */}
-      <section className="bg-brand-navy py-20 text-center text-white sm:py-24">
+      <section className="bg-brand-gray-light py-20 text-center sm:py-24">
         <div className="mx-auto max-w-2xl px-6">
           <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
             Follow the journey
           </p>
-          <h2 className="mt-3 font-serif text-3xl font-bold sm:text-4xl">
+          <h2 className="mt-3 font-serif text-3xl font-bold text-brand-navy sm:text-4xl">
             Follow the school on{" "}
             <span className="text-brand-orange">Facebook.</span>
           </h2>
-          <p className="mt-4 text-white/75">
+          <p className="mt-4 text-brand-gray">
             See the latest updates, photos and milestones from the Chambok
             Future School community.
           </p>
@@ -224,12 +223,6 @@ export default function PhilanthropyPage() {
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
               Chambok Future School
             </a>
-            <Link
-              href="/contact"
-              className="text-sm font-semibold text-white hover:text-brand-orange"
-            >
-              Speak to Our Team
-            </Link>
           </div>
         </div>
       </section>

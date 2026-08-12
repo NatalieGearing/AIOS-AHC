@@ -204,9 +204,9 @@ export default function FindingAPropertyManagerPage() {
                 a specialist firm does, and how to choose one.
               </p>
             </div>
-            <div className="shrink-0 border-t border-white/25 pt-6">
+            <div className="shrink-0 border-t border-white pt-6">
               <p className="font-serif text-5xl font-bold text-brand-orange">5–6</p>
-              <p className="mt-3 max-w-[12rem] text-sm leading-6 text-white/60">
+              <p className="mt-3 max-w-[12rem] text-sm leading-6 text-white">
                 independent tenancies to manage in a single rooming accommodation dwelling
               </p>
             </div>
@@ -359,7 +359,7 @@ export default function FindingAPropertyManagerPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-5 border-l-4 border-brand-orange bg-brand-cream/60 px-4.5 py-3.5 text-sm italic leading-6 text-brand-gray">
+            <p className="mt-5 border-l-4 border-brand-orange bg-brand-cream/60 px-4.5 py-3.5 text-[9pt] italic leading-6 text-brand-gray">
               Compare firms on net yield after all fees — not the headline management percentage.
               A cheap rate with per-room letting fees on high turnover can cost more than a dearer
               all-inclusive one.
@@ -481,9 +481,6 @@ export default function FindingAPropertyManagerPage() {
               {CONTACT.email}
             </a>
           </div>
-          <p className="mt-5 text-xs text-brand-gray">
-            {CONTACT.hours[0].label}: {CONTACT.hours[0].value} · {CONTACT.hours[1].label}: {CONTACT.hours[1].value}
-          </p>
         </div>
       </section>
     </div>

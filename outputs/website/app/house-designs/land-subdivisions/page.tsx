@@ -53,8 +53,8 @@ export default function LandSubdivisionsPage() {
       />
       <div className="relative min-h-[600px]">
         <Image
-          src="/images/service-subdivision.png"
-          alt="Land subdivision"
+          src="/images/subdivision-hero.png"
+          alt="Aerial view of a numbered land subdivision under development"
           fill
           priority
           className="object-cover"
@@ -68,6 +68,11 @@ export default function LandSubdivisionsPage() {
             <h1 className="mt-3 max-w-3xl font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Land Subdivisions
             </h1>
+            <p className="mt-6 max-w-2xl text-lg text-white">
+              We manage the full subdivision process for clients across
+              Brisbane and South East Queensland—from feasibility and
+              development approval to civil works and titling.
+            </p>
           </div>
         </div>
       </div>
