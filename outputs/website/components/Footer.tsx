@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SERVICES, CONTACT } from "@/lib/content";
 
@@ -8,6 +9,13 @@ export default function Footer() {
     <footer className="border-t border-white/10 bg-brand-navy text-white/75">
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 sm:grid-cols-4">
         <div>
+          <Image
+            src="/images/logo-ahc-white.png"
+            alt="Affordable House Corp"
+            width={624}
+            height={367}
+            className="h-auto w-full"
+          />
           <p className="mt-3 text-sm">
             30 years building turnkey investment properties. Australia&apos;s
             market leader in rooming accommodation.

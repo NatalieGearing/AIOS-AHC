@@ -1,9 +1,7 @@
 "use client"
 
-import type React from "react"
 import { useMemo, useState } from "react"
 import Image from "next/image"
-import { IBM_Plex_Sans } from "next/font/google"
 import {
   ArrowRight,
   Banknote,
@@ -59,13 +57,7 @@ import {
   type DepreciationInputs,
 } from "@/lib/depreciation-estimator"
 
-const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-ibm-plex-sans",
-})
-
-const SERIF = { fontFamily: "Georgia, 'Times New Roman', serif" } as const
+const SERIF = { fontFamily: "var(--font-playfair), Georgia, serif" } as const
 
 const STEPS = [
   {
@@ -131,8 +123,8 @@ type StepId = (typeof STEPS)[number]["id"]
 function SectionTitle({ title }: { title: string }) {
   return (
     <div className="mt-1 flex items-center gap-2 border-b pb-2" style={{ borderColor: "var(--border)" }}>
-      <span className="size-1.5 shrink-0 rounded-full" style={{ background: "#183a32" }} />
-      <h3 className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: "#18241f" }}>
+      <span className="size-1.5 shrink-0 rounded-full" style={{ background: "#ab8742" }} />
+      <h3 className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: "#111c49" }}>
         {title}
       </h3>
     </div>
@@ -154,7 +146,7 @@ function SelectField<T extends string>({
 }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="text-sm font-medium" style={{ color: "#2e3b35" }}>
+      <label className="text-sm font-medium" style={{ color: "#5b5d62" }}>
         {label}
       </label>
       <select
@@ -199,10 +191,10 @@ function ToggleField({
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
         className="mt-0.5 size-4"
-        style={{ accentColor: "#c69b55" }}
+        style={{ accentColor: "#ab8742" }}
       />
       <span className="flex flex-col gap-0.5">
-        <span className="text-sm font-medium" style={{ color: "#2e3b35" }}>
+        <span className="text-sm font-medium" style={{ color: "#5b5d62" }}>
           {label}
         </span>
         {hint ? (
@@ -233,7 +225,7 @@ function Row({
       </span>
       <span
         className={cn("shrink-0 tabular-nums", strong ? "text-base font-bold" : "text-sm font-semibold")}
-        style={{ color: tone === "positive" ? "#1f6c50" : tone === "negative" ? "#a9463b" : "#18241f" }}
+        style={{ color: tone === "positive" ? "#16a34a" : tone === "negative" ? "#dc2626" : "#111c49" }}
       >
         {value}
       </span>
@@ -242,32 +234,12 @@ function Row({
 }
 
 const overallStatusTone: Record<string, { bg: string; fg: string }> = {
-  "Meets investment targets": { bg: "#e3f1ea", fg: "#1f6c50" },
-  "Potentially feasible—further investigation required": { bg: "#faf1e2", fg: "#ad7124" },
-  "Marginal feasibility": { bg: "#faf1e2", fg: "#ad7124" },
-  "Does not meet current targets": { bg: "#f7e9e6", fg: "#a9463b" },
-  "Unable to assess—critical information missing": { bg: "#eef0f8", fg: "#111c49" },
+  "Meets investment targets": { bg: "rgba(22,163,74,.12)", fg: "#16a34a" },
+  "Potentially feasible—further investigation required": { bg: "rgba(171,135,66,.14)", fg: "#ab8742" },
+  "Marginal feasibility": { bg: "rgba(171,135,66,.14)", fg: "#ab8742" },
+  "Does not meet current targets": { bg: "rgba(220,38,38,.12)", fg: "#dc2626" },
+  "Unable to assess—critical information missing": { bg: "var(--accent)", fg: "#111c49" },
 }
-
-const THEME_VARS = {
-  "--background": "#fffdf8",
-  "--foreground": "#18241f",
-  "--card": "#fffdf8",
-  "--card-foreground": "#18241f",
-  "--border": "#ded8ca",
-  "--input": "#cfc8b8",
-  "--muted": "#e9efe9",
-  "--muted-foreground": "#68736e",
-  "--accent": "#e9efe9",
-  "--accent-foreground": "#18241f",
-  "--secondary": "#ded8ca",
-  "--secondary-foreground": "#18241f",
-  "--success": "#1f6c50",
-  "--warning": "#ad7124",
-  "--destructive": "#a9463b",
-  "--popover": "#fffdf8",
-  "--popover-foreground": "#18241f",
-} as React.CSSProperties
 
 function StepNavButton({
   step,
@@ -286,16 +258,16 @@ function StepNavButton({
       type="button"
       onClick={onClick}
       className="flex items-start gap-2.5 rounded-xl px-3 py-2.5 text-left transition-transform hover:translate-x-0.5"
-      style={active ? { background: "#111c49", boxShadow: "0 12px 25px rgba(24,58,50,.2)" } : { background: "transparent" }}
+      style={active ? { background: "#111c49", boxShadow: "0 12px 25px rgba(17,28,73,.2)" } : { background: "transparent" }}
     >
       <span
         className="flex size-8 shrink-0 items-center justify-center rounded-lg"
-        style={active ? { background: "#ead8b5", color: "#102720" } : { background: "var(--muted)", color: "var(--muted-foreground)" }}
+        style={active ? { background: "#ab8742", color: "#111c49" } : { background: "var(--muted)", color: "var(--muted-foreground)" }}
       >
         <Icon className="size-4" />
       </span>
       <span className="flex min-w-0 flex-col gap-0.5">
-        <span className="text-sm font-semibold leading-tight" style={{ color: active ? "#fff" : "#18241f" }}>
+        <span className="text-sm font-semibold leading-tight" style={{ color: active ? "#fff" : "#111c49" }}>
           {index + 1}. {step.title}
         </span>
         <span className="text-xs leading-tight" style={{ color: active ? "rgba(255,255,255,.65)" : "var(--muted-foreground)" }}>
@@ -413,22 +385,22 @@ export function FeasibilityCalculator() {
   const prevStep = STEPS[stepIndex - 1] ?? null
   const nextStep = STEPS[stepIndex + 1] ?? null
   const projectionRows = results.projection10yr.slice(0, projectionYears)
-  const statusTone = overallStatusTone[results.overallStatus] ?? { bg: "#eef0f8", fg: "#111c49" }
+  const statusTone = overallStatusTone[results.overallStatus] ?? { bg: "var(--accent)", fg: "#111c49" }
 
   const goToDetailedReport = () => setDetailedView(true)
 
   return (
-    <div className={ibmPlexSans.variable} style={{ ...THEME_VARS, background: "#f4f0e7", fontFamily: "var(--font-ibm-plex-sans), system-ui, sans-serif" }}>
+    <div className="bg-white">
       <div className="mx-auto flex max-w-[1600px] flex-col gap-6 px-4 py-8 md:px-6 lg:py-12">
         {/* ---------------------------- HEADER ---------------------------- */}
         <header
           className="relative overflow-hidden rounded-3xl p-6 sm:p-7"
-          style={{ boxShadow: "0 24px 60px rgba(21,35,29,.12)" }}
+          style={{ boxShadow: "0 24px 60px rgba(17,28,73,.12)" }}
         >
           <Image src="/images/feasibility-header-bg.png" alt="" fill priority className="object-cover" />
           <div
             className="pointer-events-none absolute inset-0"
-            style={{ background: "linear-gradient(128deg,rgba(16,39,32,.88),rgba(29,70,59,.82) 72%,rgba(40,82,71,.78))" }}
+            style={{ background: "linear-gradient(128deg,rgba(17,28,73,.90),rgba(36,52,110,.82) 72%,rgba(17,28,73,.85))" }}
           />
           <div className="pointer-events-none absolute -right-32 -top-52 size-[420px] rounded-full border border-white/10" />
           <div className="relative flex flex-wrap items-center justify-between gap-4">
@@ -473,11 +445,11 @@ export function FeasibilityCalculator() {
         {/* ---------------------------- WORKSPACE ---------------------------- */}
         <div className="grid grid-cols-1 items-start gap-6 xl:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]">
           {/* Calculator panel */}
-          <div className="rounded-3xl border p-4 sm:p-5" style={{ borderColor: "var(--border)", background: "var(--card)", boxShadow: "0 10px 28px rgba(25,39,33,.055)" }}>
+          <div className="rounded-3xl border p-4 sm:p-5" style={{ borderColor: "var(--border)", background: "var(--card)", boxShadow: "0 10px 28px rgba(17,28,73,.055)" }}>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-[200px_minmax(0,1fr)]">
               <nav
                 className="flex flex-col gap-2 rounded-2xl border p-2.5 sm:sticky sm:top-6"
-                style={{ borderColor: "var(--border)", background: "linear-gradient(180deg,#f0ede4,#f8f5ed)" }}
+                style={{ borderColor: "var(--border)", background: "linear-gradient(180deg,#ffffff,#ece6e1)" }}
               >
                 {STEPS.map((step, i) => (
                   <StepNavButton key={step.id} step={step} index={i} active={step.id === activeStep} onClick={() => setActiveStep(step.id)} />
@@ -486,7 +458,7 @@ export function FeasibilityCalculator() {
 
               <div className="flex min-w-0 flex-col gap-5">
                 <div className="flex flex-col gap-1 border-b pb-4" style={{ borderColor: "var(--border)" }}>
-                  <h2 className="text-2xl font-bold" style={{ ...SERIF, color: "#102720" }}>
+                  <h2 className="text-2xl font-bold" style={{ ...SERIF, color: "#111c49" }}>
                     {currentStep.heading}
                   </h2>
                   <p className="text-[13.5px]" style={{ color: "var(--muted-foreground)" }}>
@@ -527,7 +499,7 @@ export function FeasibilityCalculator() {
                       />
                     ) : null}
                     <div className="flex flex-col gap-2">
-                      <span className="text-sm font-medium" style={{ color: "#2e3b35" }}>
+                      <span className="text-sm font-medium" style={{ color: "#5b5d62" }}>
                         Legal, Due Diligence &amp; Other Purchase Costs
                       </span>
                       <LineItemEditor items={inputs.acquisitionCosts} onChange={set("acquisitionCosts")} addLabel="Add purchase cost" idPrefix="acq" />
@@ -582,7 +554,7 @@ export function FeasibilityCalculator() {
                       hint="Bed, furniture, appliances, linen and access system per room; multiplied by rentable rooms."
                     />
                     <div className="flex flex-col gap-2">
-                      <span className="text-sm font-medium" style={{ color: "#2e3b35" }}>
+                      <span className="text-sm font-medium" style={{ color: "#5b5d62" }}>
                         Common-Area Fit-Out
                       </span>
                       <LineItemEditor items={inputs.commonAreaFitout} onChange={set("commonAreaFitout")} addLabel="Add common-area cost" idPrefix="caf" />
@@ -689,7 +661,7 @@ export function FeasibilityCalculator() {
                       hint="Time to ramp from first occupancy to stabilised occupancy — funds an estimated lease-up income shortfall."
                     />
                     <div className="flex flex-col gap-2">
-                      <span className="text-sm font-medium" style={{ color: "#2e3b35" }}>
+                      <span className="text-sm font-medium" style={{ color: "#5b5d62" }}>
                         Finance Fees
                       </span>
                       <LineItemEditor items={inputs.financeFees} onChange={set("financeFees")} addLabel="Add finance fee" idPrefix="fin" />
@@ -817,7 +789,7 @@ export function FeasibilityCalculator() {
                       format={(v) => v.toFixed(1)}
                     />
                     <div className="flex flex-col gap-2">
-                      <span className="text-sm font-medium" style={{ color: "#2e3b35" }}>
+                      <span className="text-sm font-medium" style={{ color: "#5b5d62" }}>
                         Fixed Costs (Annual)
                       </span>
                       <LineItemEditor items={inputs.fixedExpenses} onChange={set("fixedExpenses")} addLabel="Add fixed cost" idPrefix="fix" />
@@ -1126,7 +1098,7 @@ export function FeasibilityCalculator() {
                       className="mt-1 flex flex-col gap-2 rounded-xl border p-4"
                       style={{ borderColor: "var(--border)", background: "var(--muted)" }}
                     >
-                      <p className="text-sm" style={{ color: "#2e3b35" }}>
+                      <p className="text-sm" style={{ color: "#5b5d62" }}>
                         Estimated first-year plant &amp; equipment deduction:{" "}
                         <strong>{formatCurrency(depEstimate.year1PeMax)}</strong>
                       </p>
@@ -1152,7 +1124,7 @@ export function FeasibilityCalculator() {
                     disabled={!prevStep}
                     onClick={() => prevStep && setActiveStep(prevStep.id)}
                     className="inline-flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold transition-colors disabled:opacity-40"
-                    style={{ borderColor: "var(--input)", background: "var(--card)", color: "#18241f" }}
+                    style={{ borderColor: "var(--input)", background: "var(--card)", color: "#111c49" }}
                   >
                     ← Back
                   </button>
@@ -1177,7 +1149,7 @@ export function FeasibilityCalculator() {
           {/* ---------------------------- RESULTS RAIL ---------------------------- */}
           <div className="flex flex-col gap-4 xl:sticky xl:top-6">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <h2 className="text-2xl font-bold" style={{ ...SERIF, color: "#102720" }}>
+              <h2 className="text-2xl font-bold" style={{ ...SERIF, color: "#111c49" }}>
                 Indicative Results Summary
               </h2>
               <button
@@ -1190,7 +1162,7 @@ export function FeasibilityCalculator() {
               </button>
             </div>
 
-            <div className="relative overflow-hidden rounded-2xl border p-4.5" style={{ borderColor: "rgba(17,28,73,.18)", background: "#eef0f8" }}>
+            <div className="relative overflow-hidden rounded-2xl border p-4.5" style={{ borderColor: "rgba(17,28,73,.18)", background: "var(--accent)" }}>
               <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: "#111c49", opacity: 0.7 }}>
                 Overall Feasibility Status
               </span>
@@ -1234,8 +1206,8 @@ export function FeasibilityCalculator() {
             </div>
 
             <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-              <div className="rounded-2xl border p-4" style={{ borderColor: "rgba(42,61,53,.1)", background: "rgba(255,253,248,.96)" }}>
-                <h3 className="mb-3 text-[15px] font-medium" style={{ ...SERIF, color: "#102720" }}>
+              <div className="rounded-2xl border p-4" style={{ borderColor: "rgba(17,28,73,.1)", background: "rgba(255,253,248,.96)" }}>
+                <h3 className="mb-3 text-[15px] font-medium" style={{ ...SERIF, color: "#111c49" }}>
                   Income vs Expenses (p.a.)
                 </h3>
                 <IncomeExpenseBarChart
@@ -1244,7 +1216,7 @@ export function FeasibilityCalculator() {
                   loanRepayments={results.annualDebtService}
                   netCashFlow={results.preTaxCashFlow}
                 />
-                <p className="mt-3 text-lg font-bold" style={{ color: "#18241f" }}>
+                <p className="mt-3 text-lg font-bold" style={{ color: "#111c49" }}>
                   {formatCurrency(results.effectiveGrossIncome)}
                 </p>
                 <p className="text-[11px] uppercase tracking-wide" style={{ color: "var(--muted-foreground)" }}>
@@ -1254,16 +1226,16 @@ export function FeasibilityCalculator() {
                   View full breakdown →
                 </button>
               </div>
-              <div className="rounded-2xl border p-4" style={{ borderColor: "rgba(42,61,53,.1)", background: "rgba(255,253,248,.96)" }}>
-                <h3 className="mb-3 text-[15px] font-medium" style={{ ...SERIF, color: "#102720" }}>
+              <div className="rounded-2xl border p-4" style={{ borderColor: "rgba(17,28,73,.1)", background: "rgba(255,253,248,.96)" }}>
+                <h3 className="mb-3 text-[15px] font-medium" style={{ ...SERIF, color: "#111c49" }}>
                   10 Year Cash Flow (After Tax)
                 </h3>
                 <CashFlowLineChart values={results.projection10yr.map((r) => r.afterTaxCashFlow)} />
               </div>
             </div>
 
-            <div className="flex flex-col gap-2 rounded-2xl border p-4" style={{ borderColor: "var(--border)", background: "rgba(232,237,230,.68)" }}>
-              <p className="text-sm leading-relaxed" style={{ color: "#2e3b35" }}>
+            <div className="flex flex-col gap-2 rounded-2xl border p-4" style={{ borderColor: "var(--border)", background: "rgba(17,28,73,.05)" }}>
+              <p className="text-sm leading-relaxed" style={{ color: "#5b5d62" }}>
                 <strong>Important information.</strong> Results are estimates only, based on the information provided. Please seek
                 project-specific professional advice before relying on them.
               </p>
@@ -1306,14 +1278,14 @@ export function FeasibilityCalculator() {
             </section>
 
             {results.warnings.length > 0 ? (
-              <section className="flex flex-col gap-2 rounded-2xl border p-5" style={{ borderColor: "rgba(173,113,36,.4)", background: "rgba(173,113,36,.1)" }}>
-                <div className="flex items-center gap-2 font-semibold" style={{ color: "#18241f" }}>
-                  <TriangleAlert className="size-4" style={{ color: "#ad7124" }} />
+              <section className="flex flex-col gap-2 rounded-2xl border p-5" style={{ borderColor: "rgba(171,135,66,.4)", background: "rgba(171,135,66,.1)" }}>
+                <div className="flex items-center gap-2 font-semibold" style={{ color: "#111c49" }}>
+                  <TriangleAlert className="size-4" style={{ color: "#ab8742" }} />
                   Warnings
                 </div>
                 <ul className="flex flex-col gap-1.5">
                   {results.warnings.map((w) => (
-                    <li key={w} className="text-sm leading-relaxed" style={{ color: "#18241f" }}>
+                    <li key={w} className="text-sm leading-relaxed" style={{ color: "#111c49" }}>
                       • {w}
                     </li>
                   ))}
@@ -1408,7 +1380,7 @@ export function FeasibilityCalculator() {
 
             <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div className="flex flex-col gap-3 rounded-2xl border p-5 md:p-6" style={{ borderColor: "var(--border)", background: "var(--card)" }}>
-                <h3 className="font-semibold" style={{ color: "#18241f" }}>
+                <h3 className="font-semibold" style={{ color: "#111c49" }}>
                   Total development cost
                 </h3>
                 <Row label="Total acquisition cost" value={formatCurrency(results.totalAcquisitionCost)} />
@@ -1421,7 +1393,7 @@ export function FeasibilityCalculator() {
               </div>
 
               <div className="flex flex-col gap-3 rounded-2xl border p-5 md:p-6" style={{ borderColor: "var(--border)", background: "var(--card)" }}>
-                <h3 className="font-semibold" style={{ color: "#18241f" }}>
+                <h3 className="font-semibold" style={{ color: "#111c49" }}>
                   Stabilised operating result
                 </h3>
                 <Row label="Gross potential room income" value={`${formatCurrency(results.grossPotentialAnnualRoomIncome)}/yr`} />
@@ -1462,7 +1434,7 @@ export function FeasibilityCalculator() {
                   <span className="text-xs font-medium uppercase tracking-wide" style={{ color: "var(--muted-foreground)" }}>
                     {label}
                   </span>
-                  <span className="text-lg font-bold tabular-nums" style={{ color: "#18241f" }}>
+                  <span className="text-lg font-bold tabular-nums" style={{ color: "#111c49" }}>
                     {value}
                   </span>
                 </div>
@@ -1472,14 +1444,14 @@ export function FeasibilityCalculator() {
             <section className="flex flex-col gap-3 rounded-2xl border p-5 md:p-6" style={{ borderColor: "var(--border)", background: "var(--card)" }}>
               <div className="flex items-center gap-2">
                 <Target className="size-5" style={{ color: "#111c49" }} />
-                <h2 className="text-lg font-semibold" style={{ color: "#18241f" }}>
+                <h2 className="text-lg font-semibold" style={{ color: "#111c49" }}>
                   Investor targets
                 </h2>
               </div>
               <div className="flex flex-col divide-y" style={{ borderColor: "var(--border)" }}>
                 {results.targets.map((t) => (
                   <div key={t.key} className="flex flex-wrap items-center justify-between gap-2 py-2" style={{ borderColor: "var(--border)" }}>
-                    <span className="text-sm" style={{ color: "#18241f" }}>
+                    <span className="text-sm" style={{ color: "#111c49" }}>
                       {t.label}
                     </span>
                     <div className="flex items-center gap-3">
@@ -1497,7 +1469,7 @@ export function FeasibilityCalculator() {
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
                   <CalendarClock className="size-5" style={{ color: "#111c49" }} />
-                  <h2 className="text-lg font-semibold" style={{ color: "#18241f" }}>
+                  <h2 className="text-lg font-semibold" style={{ color: "#111c49" }}>
                     Long-term hold projection
                   </h2>
                 </div>
@@ -1532,16 +1504,16 @@ export function FeasibilityCalculator() {
                   </thead>
                   <tbody>
                     {projectionRows.map((row) => (
-                      <tr key={row.year} className="border-b last:border-0" style={{ borderColor: "rgba(42,61,53,.12)" }}>
+                      <tr key={row.year} className="border-b last:border-0" style={{ borderColor: "rgba(17,28,73,.12)" }}>
                         <td className="py-1.5 pr-3 font-medium">{row.year}</td>
                         <td className="py-1.5 pr-3 text-right tabular-nums">{formatCurrency(row.effectiveGrossIncome)}</td>
                         <td className="py-1.5 pr-3 text-right tabular-nums">{formatCurrency(row.operatingExpenses)}</td>
                         <td className="py-1.5 pr-3 text-right tabular-nums font-semibold">{formatCurrency(row.netOperatingIncome)}</td>
                         <td className="py-1.5 pr-3 text-right tabular-nums">{formatCurrency(row.debtService)}</td>
-                        <td className="py-1.5 pr-3 text-right tabular-nums" style={{ color: row.preTaxCashFlow >= 0 ? "#1f6c50" : "#a9463b" }}>
+                        <td className="py-1.5 pr-3 text-right tabular-nums" style={{ color: row.preTaxCashFlow >= 0 ? "#16a34a" : "#dc2626" }}>
                           {formatCurrency(row.preTaxCashFlow)}
                         </td>
-                        <td className="py-1.5 pr-3 text-right tabular-nums" style={{ color: row.afterTaxCashFlow >= 0 ? "#1f6c50" : "#a9463b" }}>
+                        <td className="py-1.5 pr-3 text-right tabular-nums" style={{ color: row.afterTaxCashFlow >= 0 ? "#16a34a" : "#dc2626" }}>
                           {formatCurrency(row.afterTaxCashFlow)}
                         </td>
                         <td className="py-1.5 pr-3 text-right tabular-nums">{formatCurrency(row.propertyValue)}</td>
@@ -1561,7 +1533,7 @@ export function FeasibilityCalculator() {
             <section className="flex flex-col gap-3 rounded-2xl border p-5 md:p-6" style={{ borderColor: "var(--border)", background: "var(--card)" }}>
               <div className="flex items-center gap-2">
                 <TriangleAlert className="size-5" style={{ color: "#111c49" }} />
-                <h2 className="text-lg font-semibold" style={{ color: "#18241f" }}>
+                <h2 className="text-lg font-semibold" style={{ color: "#111c49" }}>
                   Sensitivity &amp; stress testing
                 </h2>
               </div>
@@ -1582,7 +1554,7 @@ export function FeasibilityCalculator() {
                       <tr
                         key={s.label}
                         className="border-b last:border-0"
-                        style={{ borderColor: "rgba(42,61,53,.12)", background: s.label === "Base case" ? "var(--muted)" : undefined }}
+                        style={{ borderColor: "rgba(17,28,73,.12)", background: s.label === "Base case" ? "var(--muted)" : undefined }}
                       >
                         <td className="py-1.5 pr-3 font-medium">{s.label}</td>
                         <td className="py-1.5 pr-3 text-right tabular-nums">{formatPercent(s.netYieldOnCostPct)}</td>
@@ -1601,7 +1573,7 @@ export function FeasibilityCalculator() {
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
                   <LineChart className="size-5" style={{ color: "#111c49" }} />
-                  <h2 className="text-lg font-semibold" style={{ color: "#18241f" }}>
+                  <h2 className="text-lg font-semibold" style={{ color: "#111c49" }}>
                     Depreciation estimate
                   </h2>
                 </div>
@@ -1619,7 +1591,7 @@ export function FeasibilityCalculator() {
                   <span className="text-xs font-medium uppercase tracking-wide" style={{ color: "var(--muted-foreground)" }}>
                     Estimated construction cost
                   </span>
-                  <span className="text-base font-bold tabular-nums" style={{ color: "#18241f" }}>
+                  <span className="text-base font-bold tabular-nums" style={{ color: "#111c49" }}>
                     {formatCurrency(depEstimate.costMin)} – {formatCurrency(depEstimate.costMax)}
                   </span>
                 </div>
@@ -1627,7 +1599,7 @@ export function FeasibilityCalculator() {
                   <span className="text-xs font-medium uppercase tracking-wide" style={{ color: "var(--muted-foreground)" }}>
                     First full-year deductions
                   </span>
-                  <span className="text-base font-bold tabular-nums" style={{ color: "#18241f" }}>
+                  <span className="text-base font-bold tabular-nums" style={{ color: "#111c49" }}>
                     {formatCurrency(depEstimate.firstMin)} – {formatCurrency(depEstimate.firstMax)}
                   </span>
                 </div>
@@ -1635,7 +1607,7 @@ export function FeasibilityCalculator() {
                   <span className="text-xs font-medium uppercase tracking-wide" style={{ color: "var(--muted-foreground)" }}>
                     5-year deductions
                   </span>
-                  <span className="text-base font-bold tabular-nums" style={{ color: "#18241f" }}>
+                  <span className="text-base font-bold tabular-nums" style={{ color: "#111c49" }}>
                     {formatCurrency(depEstimate.fiveMin)} – {formatCurrency(depEstimate.fiveMax)}
                   </span>
                 </div>
@@ -1653,7 +1625,7 @@ export function FeasibilityCalculator() {
                   </thead>
                   <tbody>
                     {depEstimate.rows.map((row) => (
-                      <tr key={row.year} className="border-b last:border-0" style={{ borderColor: "rgba(42,61,53,.12)" }}>
+                      <tr key={row.year} className="border-b last:border-0" style={{ borderColor: "rgba(17,28,73,.12)" }}>
                         <td className="py-1.5 pr-3 font-medium">Year {row.year}</td>
                         <td className="py-1.5 pr-3 text-right tabular-nums">{formatCurrency(row.plantEquipment)}</td>
                         <td className="py-1.5 pr-3 text-right tabular-nums">{formatCurrency(row.div43)}</td>

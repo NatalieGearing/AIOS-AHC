@@ -22,9 +22,9 @@ interface IncomeExpenseBarChartProps {
 /** "Income vs Expenses (p.a.)" — three bars breaking effective gross income into opex / debt service / net cash flow. */
 export function IncomeExpenseBarChart({ totalIncome, operatingExpenses, loanRepayments, netCashFlow }: IncomeExpenseBarChartProps) {
   const bars = [
-    { label: "Operating Expenses", value: Math.max(0, operatingExpenses), color: "#183a32" },
-    { label: "Loan repayments", value: Math.max(0, loanRepayments), color: "#68736e" },
-    { label: "Net Cash Flow", value: Math.max(0, netCashFlow), color: "#cfc8b8" },
+    { label: "Operating Expenses", value: Math.max(0, operatingExpenses), color: "#111c49" },
+    { label: "Loan repayments", value: Math.max(0, loanRepayments), color: "#5b5d62" },
+    { label: "Net Cash Flow", value: Math.max(0, netCashFlow), color: "#ab8742" },
   ]
   const basis = totalIncome > 0 ? totalIncome : Math.max(1, bars.reduce((s, b) => s + b.value, 0))
   const max = Math.max(...bars.map((b) => b.value), 1)
@@ -45,11 +45,11 @@ export function IncomeExpenseBarChart({ totalIncome, operatingExpenses, loanRepa
         {bars.map((b) => (
           <div key={b.label} className="flex items-center gap-1.5">
             <span className="h-2 w-2 shrink-0 rounded-sm" style={{ background: b.color }} />
-            <span style={{ color: "#68736e" }}>{b.label}</span>
-            <span className="ml-auto font-semibold" style={{ color: "#18241f" }}>
+            <span style={{ color: "#5b5d62" }}>{b.label}</span>
+            <span className="ml-auto font-semibold" style={{ color: "#111c49" }}>
               {fmtCompact(b.value)}
             </span>
-            <span className="w-10 text-right" style={{ color: "#68736e" }}>
+            <span className="w-10 text-right" style={{ color: "#5b5d62" }}>
               ({((b.value / basis) * 100).toFixed(1)}%)
             </span>
           </div>
@@ -85,22 +85,22 @@ export function CashFlowLineChart({ values }: CashFlowLineChartProps) {
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label="10 year after-tax cash flow projection">
       {yTicks.map((t) => (
-        <line key={t} x1={margin.left} x2={W - margin.right} y1={yAt(t)} y2={yAt(t)} stroke="#ded8ca" strokeWidth={1} />
+        <line key={t} x1={margin.left} x2={W - margin.right} y1={yAt(t)} y2={yAt(t)} stroke="#efefef" strokeWidth={1} />
       ))}
       {yTicks.map((t) => (
-        <text key={t} x={margin.left - 6} y={yAt(t) + 3} textAnchor="end" fontSize={10} fill="#68736e">
+        <text key={t} x={margin.left - 6} y={yAt(t) + 3} textAnchor="end" fontSize={10} fill="#5b5d62">
           {fmtCompact(t)}
         </text>
       ))}
       {values.map((_, i) => (
-        <text key={i} x={xAt(i)} y={H - 6} textAnchor="middle" fontSize={10} fill="#68736e">
+        <text key={i} x={xAt(i)} y={H - 6} textAnchor="middle" fontSize={10} fill="#5b5d62">
           {i + 1}
         </text>
       ))}
-      <path d={areaPath} fill="#183a32" fillOpacity={0.08} />
-      <path d={path} fill="none" stroke="#183a32" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+      <path d={areaPath} fill="#111c49" fillOpacity={0.08} />
+      <path d={path} fill="none" stroke="#111c49" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
       {values.map((v, i) => (
-        <circle key={i} cx={xAt(i)} cy={yAt(v)} r={2.5} fill="#183a32" />
+        <circle key={i} cx={xAt(i)} cy={yAt(v)} r={2.5} fill="#111c49" />
       ))}
     </svg>
   )

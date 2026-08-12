@@ -632,13 +632,10 @@ export default function ComplianceCentrePage() {
       </div>
 
       {/* Disclaimer + CTA */}
-      <section className="border-t border-brand-gray-light bg-brand-cream py-16">
+      <section className="border-t border-brand-gray-light bg-brand-cream py-8">
         <div className="mx-auto grid max-w-4xl gap-10 px-6 md:grid-cols-2 md:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
-              Confirm before relying on this
-            </p>
-            <h2 className="mt-3 font-serif text-2xl font-bold capitalize text-brand-navy sm:text-3xl">
+            <h2 className="font-serif text-2xl font-bold capitalize text-brand-navy sm:text-3xl">
               Every project is property-specific.
             </h2>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -656,7 +653,7 @@ export default function ComplianceCentrePage() {
               </Link>
             </div>
           </div>
-          <p className="text-justify text-sm leading-7 text-brand-gray">
+          <p className="text-justify text-sm leading-7 text-brand-gray md:col-span-2">
             This page is general information, current at the time of publication, and summarises
             publicly available Queensland government and Residential Tenancies Authority guidance
             linked throughout. It is not planning, legal, accounting or building-certification advice.
