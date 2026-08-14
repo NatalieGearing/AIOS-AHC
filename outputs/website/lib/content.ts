@@ -14,7 +14,7 @@ export const SERVICES: ServiceItem[] = [
   {
     title: "Rooming Accommodation",
     slug: "rooming-accommodation",
-    image: "/images/service-rooming.png",
+    image: "/images/bellatrix-210/exterior.png",
     description:
       "Purpose-built, high-yield rooming accommodation. Affordable House Corp is the market leader in this space, offering significantly higher rental returns than many traditional residential builds.",
     flagship: true,

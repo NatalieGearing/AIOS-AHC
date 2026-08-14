@@ -148,11 +148,12 @@ export default function Home() {
 
       <section className="relative overflow-hidden bg-brand-navy py-10 text-white">
         <Image
-          src="/images/watermark-a-white.png"
+          src="/images/why-choose-ahc-bg.png"
           alt=""
           aria-hidden="true"
           fill
-          className="pointer-events-none select-none object-cover object-right opacity-5"
+          priority
+          className="pointer-events-none select-none object-cover"
         />
         <div className="relative mx-auto max-w-6xl px-6">
           <h2 className="font-serif text-[32px] font-bold">
@@ -243,81 +244,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-10">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <h2 className="font-serif text-[32px] font-bold text-brand-navy">
-              House &amp; Land Packages <span className="text-brand-orange">Currently Available</span>
-            </h2>
-            <p className="mt-3 max-w-2xl text-[14px] text-brand-gray">
-              Investment-ready house and land opportunities available right now.
-            </p>
-          </div>
-          <Link
-            href="/house-and-land"
-            className="inline-block shrink-0 text-sm font-semibold text-brand-orange hover:underline"
-          >
-            View All House &amp; Land Packages &rarr;
-          </Link>
-        </div>
-
-        {LISTINGS.length === 0 ? (
-          <p className="mt-10 text-center text-brand-gray">
-            No current listings — check back soon or{" "}
-            <Link href="/contact" className="font-semibold text-brand-orange hover:underline">
-              get in touch
-            </Link>{" "}
-            about upcoming opportunities.
-          </p>
-        ) : (
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {LISTINGS.map((listing) => (
-              <ListingCard key={listing.slug} listing={listing} />
-            ))}
-          </div>
-        )}
-      </section>
-
-      <section className="border-t border-brand-gray-light bg-brand-cream py-8">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-10 text-center">
-            <h2 className="font-serif text-[32px] font-bold text-brand-navy">
-              Built with <span className="text-brand-orange">Premium Brands</span>
-            </h2>
-            <p className="mx-auto mt-3 max-w-xl text-[14px] text-brand-gray">
-              Every Affordable House Corp project is built with Australia&apos;s most
-              trusted building product brands — delivering quality tenants expect
-              and durability investors demand.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4 sm:grid-cols-5 lg:grid-cols-9">
-            {SUPPLIERS.map((supplier) => (
-              <div
-                key={supplier.name}
-                className="flex h-20 items-center justify-center rounded-xl border border-brand-gray-light bg-white p-3 text-center"
-              >
-                {supplier.image ? (
-                  <div className="relative h-full w-full">
-                    <Image
-                      src={supplier.image}
-                      alt={supplier.name}
-                      fill
-                      sizes="160px"
-                      className="object-contain p-1 grayscale"
-                    />
-                  </div>
-                ) : (
-                  <span className="text-xs font-bold leading-tight text-brand-gray">
-                    {supplier.name}
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="bg-white py-10">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center">
@@ -353,6 +279,81 @@ export default function Home() {
                     <p className="text-xs text-brand-gray">{review.location}</p>
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-[1899px] bg-brand-cream px-6 py-10">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <h2 className="font-serif text-[32px] font-bold text-brand-navy">
+              House &amp; Land Packages <span className="text-brand-orange">Currently Available</span>
+            </h2>
+            <p className="mt-3 max-w-2xl text-[14px] text-brand-gray">
+              Investment-ready house and land opportunities available right now.
+            </p>
+          </div>
+          <Link
+            href="/house-and-land"
+            className="inline-block shrink-0 text-sm font-semibold text-brand-orange hover:underline"
+          >
+            View All House &amp; Land Packages &rarr;
+          </Link>
+        </div>
+
+        {LISTINGS.length === 0 ? (
+          <p className="mt-10 text-center text-brand-gray">
+            No current listings — check back soon or{" "}
+            <Link href="/contact" className="font-semibold text-brand-orange hover:underline">
+              get in touch
+            </Link>{" "}
+            about upcoming opportunities.
+          </p>
+        ) : (
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {LISTINGS.map((listing) => (
+              <ListingCard key={listing.slug} listing={listing} />
+            ))}
+          </div>
+        )}
+      </section>
+
+      <section className="border-t border-brand-gray-light bg-white py-8">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-10 text-center">
+            <h2 className="font-serif text-[32px] font-bold text-brand-navy">
+              Built with <span className="text-brand-orange">Premium Brands</span>
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-[14px] text-brand-gray">
+              Every Affordable House Corp project is built with Australia&apos;s most
+              trusted building product brands — delivering quality tenants expect
+              and durability investors demand.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 gap-4 sm:grid-cols-5 lg:grid-cols-9">
+            {SUPPLIERS.map((supplier) => (
+              <div
+                key={supplier.name}
+                className="flex h-20 items-center justify-center rounded-xl border border-brand-gray-light bg-brand-cream p-3 text-center"
+              >
+                {supplier.image ? (
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={supplier.image}
+                      alt={supplier.name}
+                      fill
+                      sizes="160px"
+                      className="object-contain p-1 grayscale"
+                    />
+                  </div>
+                ) : (
+                  <span className="text-xs font-bold leading-tight text-brand-gray">
+                    {supplier.name}
+                  </span>
+                )}
               </div>
             ))}
           </div>
@@ -408,7 +409,9 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
               </svg>
               <h3 className="mt-4 font-serif text-xl font-bold text-brand-navy">
-                Request a Detailed Quote
+                Request a Detailed
+                <br />
+                Quote
               </h3>
               <span className="mt-2 block h-0.5 w-10 bg-brand-orange" />
               <p className="mt-3 text-sm text-brand-gray">

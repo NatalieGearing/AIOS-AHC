@@ -21,7 +21,7 @@ const NAV_ITEMS = [
     label: "Investor Resources",
     children: [
       { href: "/investor-resources/investment-guides", label: "Investment Guides" },
-      { href: "/house-designs/rooming-accommodation", label: "What is rooming accommodation?" },
+      { href: "/house-designs/rooming-accommodation", label: "What is Rooming Accommodation?" },
       {
         label: "Finance & Investment",
         children: [
@@ -75,8 +75,8 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-brand-gray-light bg-white">
       <div className="flex items-center justify-between px-6 py-4">
-        <div className="mx-auto flex w-full max-w-6xl items-center gap-24">
-        <Link href="/" className="flex items-center">
+        <div className="flex flex-1 items-center gap-6">
+        <Link href="/" className="flex shrink-0 items-center">
           <Image
             src="/images/logo-ahc.png"
             alt="Affordable House Corp"
@@ -87,7 +87,7 @@ export default function Nav() {
           />
         </Link>
 
-        <nav className="hidden flex-1 items-center gap-5 whitespace-nowrap lg:gap-7 md:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-3 whitespace-nowrap xl:flex xl:gap-5">
           {NAV_ITEMS.map((item) =>
             "children" in item ? (
               <div
@@ -193,7 +193,7 @@ export default function Nav() {
 
         <button
           type="button"
-          className="flex flex-col gap-1.5 md:hidden"
+          className="flex flex-col gap-1.5 xl:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -206,20 +206,20 @@ export default function Nav() {
 
         <Link
           href="/portal"
-          className="ml-6 hidden shrink-0 whitespace-nowrap rounded-md border border-brand-navy px-4 py-2.5 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-navy hover:text-white md:inline-block"
+          className="ml-6 hidden shrink-0 whitespace-nowrap rounded-md border border-brand-navy px-4 py-2.5 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-navy hover:text-white 2xl:inline-block"
         >
           Customer Portal
         </Link>
         <Link
           href="/contact"
-          className="ml-3 hidden shrink-0 whitespace-nowrap rounded-md bg-brand-navy px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-light md:inline-block"
+          className="ml-3 hidden shrink-0 whitespace-nowrap rounded-md bg-brand-navy px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-navy-light xl:inline-block"
         >
           Speak to an Expert
         </Link>
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-brand-gray-light bg-white px-6 py-4 md:hidden">
+        <nav className="flex flex-col gap-1 border-t border-brand-gray-light bg-white px-6 py-4 xl:hidden">
           {NAV_ITEMS.map((item) =>
             "children" in item ? (
               <div key={item.label}>

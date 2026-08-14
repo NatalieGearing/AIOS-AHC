@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { ArrowDown } from "lucide-react";
 import { DESIGN_LIBRARY } from "@/lib/design-library";
 import { CONTACT } from "@/lib/content";
 
@@ -225,28 +226,31 @@ export default function ColourCollections() {
       `}</style>
 
       {/* Poster hero */}
-      <section id="poster" style={{ position: "relative", minHeight: "min(78vh,700px)", display: "flex", alignItems: "flex-end", overflow: "hidden", background: "#111c49" }}>
+      <section id="poster" className="relative min-h-[600px] overflow-hidden">
         <Image src="/images/colour-studio/hero-showroom.png" alt="" fill priority sizes="100vw" style={{ objectFit: "cover" }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg,rgba(17,28,73,.6) 0%,rgba(17,28,73,.5) 46%,rgba(17,28,73,.93) 100%)" }} />
-        <div style={{ position: "relative", width: "100%", maxWidth: 1560, margin: "0 auto", padding: "0 40px 64px", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 24, color: "#ffffff" }}>
-          <p style={{ display: "flex", alignItems: "center", gap: 12, margin: 0, fontSize: 11, letterSpacing: ".16em", textTransform: "uppercase", color: "rgba(255,255,255,.72)" }}>
-            <span style={{ padding: "4px 9px", color: "#fff", borderRadius: 3, letterSpacing: ".14em", fontWeight: 600, background: ACCENT }}>AHC</span>
-            Designer colour collections
-          </p>
-          <h1 style={{ margin: 0, maxWidth: "22ch", fontFamily: "var(--font-serif), serif", fontWeight: 700, fontSize: "clamp(44px,5.6vw,86px)", lineHeight: 1, letterSpacing: "-.025em" }}>
-            One complete look.
-            <em style={{ display: "block", fontStyle: "italic", color: ACCENT_ON_DARK }}>Every finish considered.</em>
-          </h1>
-          <p style={{ margin: 0, maxWidth: "56ch", fontSize: 16.5, lineHeight: 1.6, color: "rgba(255,255,255,.8)" }}>
-            Choose your home, then select one professionally coordinated collection. Exterior, kitchen and interior finishes are already paired for a polished result.
-          </p>
-          <button
-            type="button"
-            onClick={() => scrollToId("collection-options")}
-            style={{ display: "inline-flex", alignItems: "center", gap: 10, color: "#fff", border: "none", borderRadius: 999, padding: "15px 28px", fontSize: 13, fontWeight: 600, letterSpacing: ".05em", textTransform: "uppercase", background: ACCENT }}
-          >
-            Explore the collections<span aria-hidden="true">↓</span>
-          </button>
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-900/55 to-brand-orange/10" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="mx-auto w-full max-w-6xl px-6 py-12">
+            <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
+              Designer colour collections
+            </p>
+            <h1 className="mt-3 max-w-3xl font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              One complete look.
+              <br />
+              Every finish <span className="text-brand-orange">considered.</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg text-white">
+              Choose your home, then select one professionally coordinated collection. Exterior, kitchen and interior finishes are already paired for a polished result.
+            </p>
+            <button
+              type="button"
+              onClick={() => scrollToId("collection-options")}
+              className="mt-6 inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-orange/90"
+            >
+              Explore the collections
+              <ArrowDown className="h-4 w-4" aria-hidden="true" />
+            </button>
+          </div>
         </div>
       </section>
 
@@ -585,8 +589,7 @@ export default function ColourCollections() {
       </section>
 
       {/* Footer */}
-      <footer style={{ display: "grid", gridTemplateColumns: "auto minmax(0,1fr) auto", gap: 32, alignItems: "center", padding: "28px 40px 44px", maxWidth: 1560, margin: "0 auto" }}>
-        <Image src="/images/logo-ahc.png" alt="Affordable House Corp" width={120} height={30} style={{ height: 30, width: "auto", display: "block", opacity: 0.8 }} />
+      <footer style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) auto", gap: 32, alignItems: "center", padding: "28px 40px 44px", maxWidth: 1560, margin: "0 auto" }}>
         <p style={{ margin: 0, fontSize: 11.5, lineHeight: 1.6, color: "#5b5d62", maxWidth: "88ch" }}>
           Images may show upgrades not included in the contract price. Colours shown on screen are indicative only; confirm against physical samples and final contract documentation.
         </p>

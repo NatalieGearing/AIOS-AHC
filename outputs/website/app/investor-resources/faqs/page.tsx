@@ -1,23 +1,15 @@
-import type { ReactNode } from "react";
+import { Suspense } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
+import FaqCategories, { type FaqCategory } from "@/components/FaqCategories";
+import FaqSearch from "@/components/FaqSearch";
 
 export const metadata = buildMetadata({
   title: "FAQs",
   description:
     "Frequently asked questions for property investors, from Affordable House Corp — getting started, land & planning, construction & costs, returns & finance, and after handover.",
 });
-
-interface FaqItem {
-  question: string;
-  answer: string;
-  answerNode?: ReactNode;
-}
-
-interface FaqCategory {
-  title: string;
-  items: FaqItem[];
-}
 
 const CATEGORIES: FaqCategory[] = [
   {
@@ -207,60 +199,57 @@ export default function FaqsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <div className="mx-auto max-w-3xl px-6 py-20 text-center">
-        <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">
-          Investor Resources
-        </span>
-        <h1 className="mt-3 font-serif text-3xl font-bold text-brand-navy sm:text-4xl">
-          Frequently Asked Questions
-        </h1>
-        <p className="mx-auto mt-6 max-w-xl text-brand-gray">
-          Answers to the questions investors ask us most often, from getting
-          started through to build timelines, finance, and returns.
-        </p>
-      </div>
-
-      <div className="mx-auto max-w-4xl px-6 pb-20">
-        {CATEGORIES.map((category) => (
-          <div key={category.title} className="mb-14 last:mb-0">
-            <h2 className="font-serif text-2xl font-bold text-brand-navy">
-              {category.title}
-            </h2>
-            <div className="mt-6 flex flex-col gap-8">
-              {category.items.map((item) => (
-                <div key={item.question}>
-                  <h3 className="font-semibold text-brand-navy">
-                    {item.question}
-                  </h3>
-                  <p className="mt-2 leading-7 text-brand-gray">
-                    {item.answerNode ?? item.answer}
-                  </p>
-                </div>
-              ))}
+      <div className="relative min-h-[420px] sm:min-h-[520px]">
+        <Image
+          src="/images/faq-poster.png"
+          alt=""
+          fill
+          priority
+          className="object-cover object-left"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-900/55 to-brand-orange/10" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="mx-auto w-full max-w-6xl px-6 py-12">
+            <div className="max-w-[75%] sm:max-w-lg">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">
+                Investor Resources
+              </span>
+              <h1 className="mt-3 font-serif text-3xl font-bold text-white sm:text-4xl">
+                Frequently Asked Questions
+              </h1>
+              <p className="mt-6 max-w-xl text-white">
+                Answers to the questions investors ask us most often, from getting
+                started through to build timelines, finance, and returns.
+              </p>
+              <Suspense fallback={null}>
+                <FaqSearch />
+              </Suspense>
             </div>
           </div>
-        ))}
+        </div>
       </div>
 
-      <div className="border-t border-brand-gray-light bg-brand-cream py-16 text-center">
-        <h2 className="font-serif text-2xl font-bold text-brand-navy">
-          Still have questions?
-        </h2>
-        <p className="mx-auto mt-3 max-w-xl text-brand-gray">
-          Speak with our team for guidance specific to your site and goals.
-        </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-4">
+      <div className="mx-auto max-w-7xl px-6 py-14">
+        <Suspense fallback={null}>
+          <FaqCategories categories={CATEGORIES} />
+        </Suspense>
+      </div>
+
+      <div className="border-t border-brand-gray-light bg-brand-gray-light py-8">
+        <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-6 px-6 text-center md:flex-row md:text-left">
+          <div>
+            <h2 className="font-serif text-2xl font-bold text-brand-navy">
+              Let&apos;s find the right answer together
+            </h2>
+            <p className="mt-3 max-w-xl text-brand-gray">
+              Speak with our team for guidance specific to your site and goals.
+            </p>
+          </div>
           <Link
             href="/contact"
-            className="rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-brand-navy hover:bg-brand-orange/90"
+            className="shrink-0 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-brand-navy hover:bg-brand-orange/90"
           >
             Speak to an Expert
-          </Link>
-          <Link
-            href="/"
-            className="rounded-md border border-brand-gray-light px-6 py-3 text-sm font-semibold text-brand-navy hover:border-brand-orange"
-          >
-            Back to Home
           </Link>
         </div>
       </div>
