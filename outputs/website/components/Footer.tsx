@@ -18,14 +18,14 @@ export default function Footer() {
               className="mx-auto block h-auto w-[56.25%]"
             />
           </Link>
-          <p className="mt-3 text-sm">
+          <p className="mt-3 text-sm text-white">
             30 years building turnkey investment properties. Australia&apos;s
             market leader in rooming accommodation.
           </p>
         </div>
 
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-white/60">
+          <p className="text-sm font-semibold uppercase tracking-wide text-white">
             Services
           </p>
           <ul className="mt-3 space-y-2 text-sm">
@@ -39,16 +39,16 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/contact" className="hover:text-white">
+                Enquire About a Project
+              </Link>
+            </li>
           </ul>
         </div>
 
         <div>
           <ul className="space-y-2 text-sm">
-            <li>
-              <Link href="/contact" className="hover:text-white">
-                Enquire about a project
-              </Link>
-            </li>
             <li>
               <Link href="/calculator" className="hover:text-white">
                 Try the Build Calculator
@@ -73,7 +73,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-white/60">
+          <p className="text-sm font-semibold uppercase tracking-wide text-white">
             Get in touch
           </p>
           <ul className="mt-3 space-y-2 text-sm">

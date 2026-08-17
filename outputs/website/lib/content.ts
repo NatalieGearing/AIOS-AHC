@@ -117,6 +117,11 @@ export interface Listing {
   estYield: string;
   beds: number;
   baths: number;
+  /** Floor area in m², where known. */
+  area?: number;
+  /** Approximate coordinates for the opportunity map. */
+  lat: number;
+  lng: number;
 }
 
 // Placeholder listings — swap these for the current real estate listings
@@ -124,15 +129,93 @@ export interface Listing {
 export const LISTINGS: Listing[] = [
   {
     slug: "acacia-ridge-rooming-house",
-    title: "Acacia Ridge Rooming House",
+    title: "7 Scouse St, Acacia Ridge",
     location: "Acacia Ridge, QLD",
     image: "/images/service-rooming.png",
     propertyType: "Rooming Accommodation",
     status: "Available",
+    guidePrice: "POA",
+    estYield: "8.2%",
+    beds: 5,
+    baths: 5,
+    area: 235,
+    lat: -27.5772245,
+    lng: 153.0275342,
+  },
+  {
+    slug: "1-coke-st-camp-hill",
+    title: "1 Coke St, Camp Hill",
+    location: "Camp Hill, QLD",
+    image: "/images/colour-studio/grand210-coastal.png",
+    propertyType: "Rooming Accommodation",
+    status: "Available",
     guidePrice: "$950,000",
-    estYield: "8.5%",
-    beds: 8,
-    baths: 8,
+    estYield: "8.2%",
+    beds: 5,
+    baths: 5,
+    area: 210,
+    lat: -27.4874810,
+    lng: 153.0867215,
+  },
+  {
+    slug: "bellatrix-218-package",
+    title: "134C Ashridge Rd, Darra",
+    location: "Darra, QLD",
+    image: "/images/bellatrix-210/exterior.png",
+    propertyType: "Rooming Accommodation",
+    status: "Available",
+    guidePrice: "POA",
+    estYield: "8.2%",
+    beds: 5,
+    baths: 5,
+    area: 218,
+    lat: -27.5622537,
+    lng: 152.9521076,
+  },
+  {
+    slug: "soho-2-package",
+    title: "393 Blunder Road, Durack",
+    location: "Durack, QLD",
+    image: "/images/soho2/exterior.png",
+    propertyType: "Pre-fab Houses",
+    status: "Available",
+    guidePrice: "From $128,000",
+    estYield: "8.2%",
+    beds: 2,
+    baths: 1,
+    area: 32,
+    lat: -27.5953403,
+    lng: 152.9865468,
+  },
+  {
+    slug: "ellen-210-package",
+    title: "23 Coxen Street, Zillmere",
+    location: "Zillmere, QLD",
+    image: "/images/service-rooming.png",
+    propertyType: "Rooming Accommodation",
+    status: "Available",
+    guidePrice: "$975,000",
+    estYield: "8.2%",
+    beds: 5,
+    baths: 5,
+    area: 210,
+    lat: -27.3564997,
+    lng: 153.0401131,
+  },
+  {
+    slug: "blunder-190-package",
+    title: "4 Woondaree St, Bracken Ridge",
+    location: "Bracken Ridge, QLD",
+    image: "/images/service-rooming.png",
+    propertyType: "Rooming Accommodation",
+    status: "Available",
+    guidePrice: "POA",
+    estYield: "8.2%",
+    beds: 5,
+    baths: 5,
+    area: 190,
+    lat: -27.3156310,
+    lng: 153.0317110,
   },
 ];
 

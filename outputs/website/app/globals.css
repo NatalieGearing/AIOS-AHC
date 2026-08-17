@@ -102,10 +102,16 @@
   animation: marquee-ltr 40s linear infinite;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Headings use Playfair Display (font-serif) site-wide, except H1/H2 which
@@ -152,6 +158,33 @@ h2.font-serif {
   border: 3px solid var(--primary);
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
   cursor: pointer;
+}
+
+/* Property map popups — dark AHC-branded card instead of Leaflet's default white bubble */
+.ahc-popup .leaflet-popup-content-wrapper {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #111c49;
+  box-shadow: 0 12px 32px -8px rgba(17, 28, 73, 0.5);
+}
+
+.ahc-popup .leaflet-popup-content {
+  margin: 0;
+  width: auto !important;
+}
+
+.ahc-popup .leaflet-popup-tip {
+  background: #111c49;
+}
+
+.ahc-popup .leaflet-popup-close-button {
+  color: rgba(255, 255, 255, 0.7) !important;
+  padding: 6px 8px 0 0 !important;
+}
+
+.ahc-popup .leaflet-popup-close-button:hover {
+  color: #ffffff !important;
 }
 
 .range-slider:focus-visible::-webkit-slider-thumb {

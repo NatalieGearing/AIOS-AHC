@@ -50,6 +50,7 @@ const NAV_ITEMS = [
       { href: "/about", label: "About Us" },
       { href: "/about/philanthropy", label: "Philanthropy" },
       { href: "/about/youtube-channel", label: "Youtube Channel" },
+      { href: "/contact", label: "Contact" },
     ],
   },
 ] as const;

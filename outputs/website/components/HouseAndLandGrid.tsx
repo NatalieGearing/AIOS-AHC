@@ -1,8 +1,18 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import dynamic from "next/dynamic";
 import { LISTINGS } from "@/lib/content";
 import ListingCard from "@/components/ListingCard";
+
+const PropertyMap = dynamic(() => import("@/components/PropertyMap"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-full min-h-[420px] items-center justify-center rounded-2xl border border-brand-gray-light bg-brand-cream text-sm text-brand-gray">
+      Loading map…
+    </div>
+  ),
+});
 
 export default function HouseAndLandGrid() {
   const [propertyType, setPropertyType] = useState("All Property Types");
@@ -55,21 +65,27 @@ export default function HouseAndLandGrid() {
         </div>
       </div>
 
-      {filtered.length === 0 ? (
-        <p className="mt-14 text-center text-brand-gray">
-          No current listings match those filters — check back soon or{" "}
-          <a href="/contact" className="font-semibold text-brand-orange hover:underline">
-            get in touch
-          </a>{" "}
-          about upcoming opportunities.
-        </p>
-      ) : (
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {filtered.map((listing) => (
-            <ListingCard key={listing.slug} listing={listing} />
-          ))}
+      <div className="mt-8 lg:grid lg:grid-cols-[1fr_420px] lg:items-start lg:gap-8">
+        {filtered.length === 0 ? (
+          <p className="text-center text-brand-gray">
+            No current listings match those filters — check back soon or{" "}
+            <a href="/contact" className="font-semibold text-brand-orange hover:underline">
+              get in touch
+            </a>{" "}
+            about upcoming opportunities.
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {filtered.map((listing) => (
+              <ListingCard key={listing.slug} listing={listing} />
+            ))}
+          </div>
+        )}
+
+        <div className="mt-6 h-[420px] overflow-hidden rounded-2xl border border-brand-gray-light lg:sticky lg:top-24 lg:mt-0 lg:h-[calc(100vh-8rem)] lg:max-h-[720px]">
+          <PropertyMap listings={filtered} />
         </div>
-      )}
+      </div>
     </div>
   );
 }

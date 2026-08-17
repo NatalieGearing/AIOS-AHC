@@ -20,22 +20,32 @@ export const metadata = buildMetadata({
 export default function ProjectsPage() {
   return (
     <div>
-      <div className="mx-auto max-w-3xl px-6 py-20 text-center">
-        <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">
-          Our Work
-        </span>
-        <h1 className="mt-3 font-serif text-3xl font-bold text-brand-navy sm:text-4xl">
-          Projects
-        </h1>
-        <p className="mx-auto mt-6 max-w-xl text-brand-gray">
-          We&apos;re building out a showcase of our completed and in-progress
-          rooming accommodation, pre-fab and land subdivision projects. This
-          page is coming soon.
-        </p>
-
-        <div className="mt-10">
-          <ProjectsFilter />
+      <div className="relative flex min-h-[600px] items-center overflow-hidden">
+        <Image
+          src="/images/colour-studio/grand210-coastal.png"
+          alt="Completed Affordable House Corp rooming accommodation project"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-900/55 to-brand-orange/10" />
+        <div className="relative mx-auto max-w-3xl px-6 py-20 text-center text-white">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">
+            Our Work
+          </span>
+          <h1 className="mt-3 font-serif text-3xl font-bold sm:text-4xl">
+            Projects
+          </h1>
+          <p className="mx-auto mt-6 max-w-xl text-white/85">
+            We&apos;re building out a showcase of our completed and in-progress
+            rooming accommodation, pre-fab and land subdivision projects. This
+            page is coming soon.
+          </p>
         </div>
+      </div>
+
+      <div className="mx-auto max-w-3xl px-6 pt-14 text-center">
+        <ProjectsFilter />
       </div>
 
       <div className="mx-auto max-w-6xl px-6 pb-20">
@@ -87,17 +97,17 @@ export default function ProjectsPage() {
 
                   <div className="mt-auto pt-4">
                     <div className="border-t border-[#111c49]/10 pt-4">
-                      {listing ? (
-                        <span className="text-sm font-bold text-[#111c49]">
-                          {listing.price}
-                        </span>
-                      ) : design.slug ? (
+                      {design.slug ? (
                         <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#111c49] group-hover:text-[#ab8742] transition-colors">
                           View design
                           <ArrowRight
                             className="h-4 w-4 transition-transform motion-safe:group-hover:translate-x-0.5"
                             aria-hidden="true"
                           />
+                        </span>
+                      ) : listing ? (
+                        <span className="text-sm font-bold text-[#111c49]">
+                          {listing.price}
                         </span>
                       ) : (
                         <span className="text-sm text-[#64656c]">Plans available on request</span>
@@ -112,7 +122,7 @@ export default function ProjectsPage() {
               "group flex flex-col rounded-xl border border-[#111c49]/10 bg-white overflow-hidden transition-all duration-300 hover:shadow-[0_12px_32px_-12px_rgba(17,28,73,0.28)] hover:border-[#ab8742]/40 motion-safe:hover:-translate-y-1";
 
             const href = listing
-              ? `/projects/${listing.slug}`
+              ? null
               : design.slug
                 ? `/house-designs/${design.slug}`
                 : null;

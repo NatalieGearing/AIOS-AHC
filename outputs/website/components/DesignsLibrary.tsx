@@ -132,7 +132,7 @@ export default function DesignsLibrary() {
               { k: "Footprint", v: `${stats.areaMin}–${stats.areaMax} m²` },
               { k: "Rooms", v: `${stats.bedMin}–${stats.bedMax}` },
             ].map((s) => (
-              <div key={s.k} className="bg-[#111c49] px-5 py-4">
+              <div key={s.k} className="bg-[#111c49]/90 px-5 py-4">
                 <dt className="text-[10px] font-semibold tracking-[0.16em] uppercase text-white/50">
                   {s.k}
                 </dt>

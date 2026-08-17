@@ -451,7 +451,8 @@ export default function ColourCollections() {
                 Explore your package
               </p>
               <h2 style={{ margin: 0, fontFamily: "var(--font-serif), serif", fontWeight: 700, fontSize: "clamp(30px,3.1vw,44px)", lineHeight: 1.05, letterSpacing: "-.015em" }}>
-                The {scheme.name} <em style={{ display: "block", fontStyle: "italic", color: ACCENT }}>collection, room by room.</em>
+                The {scheme.name} <span style={{ color: "#111c49" }}>collection</span>
+                <em style={{ display: "block", fontStyle: "italic", color: ACCENT }}>room by room.</em>
               </h2>
             </div>
             <div style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: "16px 18px", borderRadius: 12, background: "rgba(17,28,73,.05)", border: "1px solid rgba(17,28,73,.16)" }}>

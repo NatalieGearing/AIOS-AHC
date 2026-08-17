@@ -204,7 +204,7 @@ export default function FindingAPropertyManagerPage() {
                 a specialist firm does, and how to choose one.
               </p>
             </div>
-            <div className="shrink-0 border-t border-white pt-6">
+            <div className="shrink-0 border-t border-white pt-6 lg:absolute lg:right-6 lg:top-[420px]">
               <p className="font-serif text-5xl font-bold text-brand-orange">5–6</p>
               <p className="mt-3 max-w-[12rem] text-sm leading-6 text-white">
                 independent tenancies to manage in a single rooming accommodation dwelling

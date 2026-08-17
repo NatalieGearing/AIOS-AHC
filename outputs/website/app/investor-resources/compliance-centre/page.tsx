@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import ComplianceOverview, { type OverviewCard } from "@/components/ComplianceOverview";
+import HashDetailsOpener from "@/components/HashDetailsOpener";
 
 export const metadata = buildMetadata({
   title: "Compliance Centre",
@@ -534,6 +535,7 @@ function SourceList({ sources }: { sources: SourceLink[] }) {
 export default function ComplianceCentrePage() {
   return (
     <div>
+      <HashDetailsOpener />
       {/* Hero */}
       <div className="relative min-h-[600px]">
         <Image src="/images/compliance-centre-hero.png" alt="" fill priority className="object-cover" />
@@ -576,6 +578,7 @@ export default function ComplianceCentrePage() {
           <details
             key={section.id}
             id={section.id}
+            name="compliance-section"
             className="group scroll-mt-24 overflow-hidden rounded-2xl border border-brand-navy bg-white"
           >
             <summary className="flex cursor-pointer list-none items-center gap-4 p-5 marker:hidden [&::-webkit-details-marker]:hidden">
@@ -592,39 +595,43 @@ export default function ComplianceCentrePage() {
               <ChevronDown className="size-5 shrink-0 text-brand-gray transition-transform group-open:rotate-180" />
             </summary>
 
-            <div className="border-t border-brand-gray-light px-5 pb-6 pt-5">
-              {section.intro ? <p className="text-sm leading-relaxed text-brand-gray">{section.intro}</p> : null}
-              {section.introSources ? <SourceList sources={section.introSources} /> : null}
+            <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-open:grid-rows-[1fr]">
+              <div className="overflow-hidden">
+                <div className="border-t border-brand-gray-light px-5 pb-6 pt-5">
+                  {section.intro ? <p className="text-sm leading-relaxed text-brand-gray">{section.intro}</p> : null}
+                  {section.introSources ? <SourceList sources={section.introSources} /> : null}
 
-              <div className={section.intro ? "mt-6 flex flex-col gap-8" : "flex flex-col gap-8"}>
-                {section.blocks.map((block) => (
-                  <div key={block.heading}>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="text-base font-bold capitalize text-brand-navy">{block.heading}</h3>
-                    </div>
-                    <div className="mt-2 flex flex-wrap gap-1.5">
-                      {block.tags.map((t) => (
-                        <Tag key={t} kind={t} />
-                      ))}
-                    </div>
-                    {block.paragraphs?.map((p) => (
-                      <p key={p} className="mt-3 leading-7 text-brand-gray">
-                        {p}
-                      </p>
-                    ))}
-                    {block.bullets ? (
-                      <ul className="mt-3 flex flex-col gap-1.5">
-                        {block.bullets.map((b) => (
-                          <li key={b} className="flex items-start gap-2 leading-7 text-brand-gray">
-                            <span className="mt-3 h-1 w-1 shrink-0 rounded-full bg-brand-orange" />
-                            {b}
-                          </li>
+                  <div className={section.intro ? "mt-6 flex flex-col gap-8" : "flex flex-col gap-8"}>
+                    {section.blocks.map((block) => (
+                      <div key={block.heading}>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h3 className="text-base font-bold capitalize text-brand-navy">{block.heading}</h3>
+                        </div>
+                        <div className="mt-2 flex flex-wrap gap-1.5">
+                          {block.tags.map((t) => (
+                            <Tag key={t} kind={t} />
+                          ))}
+                        </div>
+                        {block.paragraphs?.map((p) => (
+                          <p key={p} className="mt-3 leading-7 text-brand-gray">
+                            {p}
+                          </p>
                         ))}
-                      </ul>
-                    ) : null}
-                    {block.sources ? <SourceList sources={block.sources} /> : null}
+                        {block.bullets ? (
+                          <ul className="mt-3 flex flex-col gap-1.5">
+                            {block.bullets.map((b) => (
+                              <li key={b} className="flex items-start gap-2 leading-7 text-brand-gray">
+                                <span className="mt-3 h-1 w-1 shrink-0 rounded-full bg-brand-orange" />
+                                {b}
+                              </li>
+                            ))}
+                          </ul>
+                        ) : null}
+                        {block.sources ? <SourceList sources={block.sources} /> : null}
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
             </div>
           </details>
