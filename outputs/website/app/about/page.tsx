@@ -430,37 +430,47 @@ export default function AboutPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="border border-brand-gray-light bg-brand-gray-light py-10 text-center sm:py-12">
-        <div className="mx-auto max-w-2xl px-6">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
-            Ready to start the conversation?
-          </h2>
-          <h3 className="mt-3 font-serif text-[36px] font-bold text-brand-navy sm:text-[45px]">
-            Show us the opportunity.
-            <br />
-            <span className="block whitespace-nowrap font-serif text-[22px] italic font-bold sm:text-[32px] lg:text-[45px]" style={{ letterSpacing: "0.98px" }}>We&apos;ll help test <span className="text-brand-orange">what&apos;s possible</span></span>
-          </h3>
-          <p className="mt-4 text-brand-gray">
-            Tell us about your site or investment plans. Our team will
-            arrange an initial conversation and recommend the most useful
-            next step.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-md border border-brand-navy px-6 py-3 text-xs font-bold uppercase tracking-wide text-brand-navy transition-colors hover:bg-brand-navy hover:text-white"
-            >
-              Enquire Now
-              <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L12.586 11H4a1 1 0 1 1 0-2h8.586l-2.293-2.293a1 1 0 0 1 0-1.414Z" clipRule="evenodd" />
-              </svg>
-            </Link>
-            <a
-              href={CONTACT.phoneHref}
-              className="text-sm font-semibold text-brand-navy hover:text-brand-orange"
-            >
-              {CONTACT.phone}
-            </a>
+      <section className="relative overflow-hidden bg-brand-cream py-20 sm:py-24">
+        <Image
+          src="/images/house-and-land-cta-bg-3.png"
+          alt=""
+          fill
+          className="object-cover object-left"
+        />
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-6 text-left md:grid-cols-2 md:gap-16 md:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
+              Ready to start the conversation?
+            </p>
+            <h2 className="mt-3 font-serif text-3xl font-bold text-brand-navy sm:text-4xl">
+              Show us the opportunity.
+              <br />
+              <span className="italic text-brand-orange">We&apos;ll help test what&apos;s possible.</span>
+            </h2>
+          </div>
+          <div>
+            <p className="text-brand-gray">
+              Tell us about your site or investment plans. Our team will
+              arrange an initial conversation and recommend the most useful
+              next step.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-md border border-brand-navy px-6 py-3 text-xs font-bold uppercase tracking-wide text-brand-navy transition-colors hover:bg-brand-navy hover:text-white"
+              >
+                Enquire Now
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L12.586 11H4a1 1 0 1 1 0-2h8.586l-2.293-2.293a1 1 0 0 1 0-1.414Z" clipRule="evenodd" />
+                </svg>
+              </Link>
+              <a
+                href={CONTACT.phoneHref}
+                className="text-sm font-semibold text-brand-navy underline hover:text-brand-orange"
+              >
+                {CONTACT.phone}
+              </a>
+            </div>
           </div>
         </div>
       </section>

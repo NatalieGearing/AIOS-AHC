@@ -48,6 +48,7 @@ const NAV_ITEMS = [
     label: "About Us",
     children: [
       { href: "/about", label: "About Us" },
+      { href: "/about/our-team", label: "Our Team" },
       { href: "/about/philanthropy", label: "Philanthropy" },
       { href: "/about/youtube-channel", label: "Youtube Channel" },
       { href: "/contact", label: "Contact" },

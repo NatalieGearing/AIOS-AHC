@@ -171,47 +171,47 @@ export default function HouseAndLandPage() {
               href={mailto("Book a property inspection")}
               className="inline-block rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-brand-navy hover:bg-brand-orange/90"
             >
-              Book a Property Inspection
+              Book a Property Viewing
             </a>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden bg-brand-navy py-20 text-white sm:py-24">
+      <section className="relative overflow-hidden bg-brand-cream py-20 sm:py-24">
         <Image
-          src="/images/house-and-land-cta-bg-2.png"
+          src="/images/house-and-land-cta-bg-3.png"
           alt=""
           fill
-          className="object-cover"
+          className="object-cover object-left"
         />
-        <div className="absolute inset-0 bg-brand-navy/85" />
         <div className="relative mx-auto grid max-w-6xl gap-10 px-6 text-left md:grid-cols-2 md:gap-16 md:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-brand-orange">
               Ready Built Opportunities
             </p>
-            <h2 className="mt-3 font-serif text-3xl font-bold sm:text-4xl">
+            <h2 className="mt-3 font-serif text-3xl font-bold text-brand-navy sm:text-4xl">
               Your next property.
               <br />
               <span className="italic text-brand-orange">Ready when you are.</span>
             </h2>
           </div>
           <div>
-            <p className="text-white/75">
-              Request the current release or arrange a conversation with our
-              Brisbane property team.
+            <p className="text-brand-gray">
+              Request our current releases or arrange a conversation
+              <br />
+              with our friendly team.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
                 href={mailto("Send me the current ready-built release")}
                 className="rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-brand-navy hover:bg-brand-orange/90"
               >
-                Send Me the Current Release
+                Send Me the Current Releases
               </a>
               <a
                 href={CONTACT.phoneHref}
-                className="text-sm font-semibold text-white hover:text-brand-orange"
+                className="text-sm font-semibold text-brand-navy underline hover:text-brand-orange"
               >
                 {CONTACT.phone}
               </a>

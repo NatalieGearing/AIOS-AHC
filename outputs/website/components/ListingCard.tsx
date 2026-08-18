@@ -33,7 +33,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
           {listing.location}
         </p>
 
-        <div className="flex items-center gap-4 border-t border-brand-navy/10 pt-4 text-sm tabular-nums text-brand-gray">
+        <div className="flex items-center justify-center gap-4 border-t border-brand-navy/10 pt-4 text-sm tabular-nums text-brand-gray">
           <span className="flex shrink-0 items-center gap-1 whitespace-nowrap">
             <Bed className="h-4 w-4 shrink-0 text-brand-orange" aria-hidden="true" />
             {listing.beds} rooms
