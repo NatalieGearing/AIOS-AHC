@@ -1,172 +1,153 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Bath, Bed, Maximize2, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
+import { CONTACT } from "@/lib/content";
 import ProjectsFilter from "@/components/ProjectsFilter";
-import { DESIGN_LIBRARY } from "@/lib/design-library";
-import { PROJECT_LISTINGS } from "@/lib/project-listings";
-
-const FEATURED_IDS = [1, 2, 15];
-const FEATURED_DESIGNS = FEATURED_IDS.map((id) =>
-  DESIGN_LIBRARY.find((d) => d.id === id)
-).filter((d): d is NonNullable<typeof d> => Boolean(d));
 
 export const metadata = buildMetadata({
-  title: "Projects",
+  title: "Completed Projects",
   description:
-    "A showcase of Affordable House Corp's completed and in-progress investment property projects.",
+    "A curated view of residential projects shaped by practical site knowledge, specialist design thinking and thirty years of delivery across South East Queensland.",
 });
+
+const CAPABILITIES = [
+  { number: "01", label: "Rooming Accommodation" },
+  { number: "02", label: "Dual Occupancy" },
+  { number: "03", label: "Prefabricated Homes" },
+  { number: "04", label: "Land Subdivisions" },
+];
+
+function mailto(subject: string) {
+  return `mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}`;
+}
 
 export default function ProjectsPage() {
   return (
     <div>
-      <div className="relative flex min-h-[600px] items-center overflow-hidden">
+      {/* Hero */}
+      <div className="relative flex min-h-[600px] items-end overflow-hidden">
         <Image
-          src="/images/colour-studio/grand210-coastal.png"
-          alt="Completed Affordable House Corp rooming accommodation project"
+          src="/images/projects-hero.png"
+          alt="A collection of completed Affordable House Corp residential projects across South East Queensland"
           fill
           priority
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-900/55 to-brand-orange/10" />
-        <div className="relative mx-auto max-w-3xl px-6 py-20 text-center text-white">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">
-            Our Work
-          </span>
-          <h1 className="mt-3 font-serif text-3xl font-bold sm:text-4xl">
-            Projects
-          </h1>
-          <p className="mx-auto mt-6 max-w-xl text-white/85">
-            We&apos;re building out a showcase of our completed and in-progress
-            rooming accommodation, pre-fab and land subdivision projects. This
-            page is coming soon.
+        <div className="relative mx-auto flex w-full max-w-6xl flex-wrap items-end justify-between gap-8 px-6 py-12">
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">
+              Completed Project Portfolio
+            </span>
+            <h1 className="mt-3 font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              Built Outcomes.
+              <br />
+              <span className="italic text-brand-orange">Real-World Capability.</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-white/85">
+              A curated view of residential projects shaped by practical site
+              knowledge, specialist design thinking and thirty years of
+              delivery across South East Queensland.
+            </p>
+            <a
+              href="#project-gallery"
+              className="mt-6 inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-orange/90"
+            >
+              Explore the Gallery
+              <ArrowDown className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
+
+          <div className="rounded-xl border border-white/20 bg-white/10 px-5 py-4 backdrop-blur">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/70">
+              Portfolio
+            </p>
+            <p className="mt-1 font-serif text-lg font-bold text-white">
+              Rooming · Dual Living · Prefabricated
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Intro */}
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">
+              Selected Work
+            </p>
+            <h2 className="mt-3 font-serif text-3xl font-bold text-brand-navy sm:text-4xl">
+              Practical Property.
+              <br />
+              <span className="italic text-[#ab8742]">Considered Delivery.</span>
+            </h2>
+          </div>
+          <p className="max-w-md text-brand-gray">
+            Every site asks different questions. Our work brings planning,
+            resident needs, buildability and long-term operation together in
+            one resolved outcome.
           </p>
         </div>
-      </div>
+      </section>
 
-      <div className="mx-auto max-w-3xl px-6 pt-14 text-center">
-        <ProjectsFilter />
-      </div>
-
-      <div className="mx-auto max-w-6xl px-6 pb-20">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURED_DESIGNS.map((design) => {
-            const listing = PROJECT_LISTINGS.find(
-              (l) => l.designSlug === design.slug
-            );
-
-            const card = (
-              <>
-                <div className="relative h-52 overflow-hidden bg-[#ece6e1]">
-                  <Image
-                    src={design.image}
-                    alt={`${listing?.title ?? design.title} — exterior`}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
-                  />
-                  <span className="absolute top-3 right-3 bg-white/90 backdrop-blur text-[#111c49] text-[10px] font-bold tracking-[0.12em] uppercase px-2.5 py-1 rounded">
-                    {design.stories === "single" ? "Single Storey" : "Two Storey"}
-                  </span>
-                </div>
-
-                <div className="p-5 flex flex-col flex-1">
-                  <p className="text-[10px] font-bold tracking-[0.16em] uppercase text-[#ab8742] mb-1.5">
-                    {design.type.replace(/-/g, " ")}
-                  </p>
-                  <h3 className="font-serif text-lg font-bold text-[#111c49] leading-snug mb-4">
-                    {listing?.title ?? design.title}
-                  </h3>
-
-                  <div className="flex items-center gap-4 text-sm text-[#64656c] border-t border-[#111c49]/10 pt-4 tabular-nums">
-                    <span className="flex shrink-0 items-center gap-1 whitespace-nowrap">
-                      <Bed className="h-4 w-4 text-[#ab8742] shrink-0" aria-hidden="true" />
-                      {design.beds} rooms
-                    </span>
-                    {design.baths ? (
-                      <span className="flex shrink-0 items-center gap-1 whitespace-nowrap">
-                        <Bath className="h-4 w-4 text-[#ab8742] shrink-0" aria-hidden="true" />
-                        {design.baths}
-                      </span>
-                    ) : null}
-                    <span className="flex shrink-0 items-center gap-1 whitespace-nowrap">
-                      <Maximize2 className="h-4 w-4 text-[#ab8742] shrink-0" aria-hidden="true" />
-                      {design.area} m²
-                    </span>
-                  </div>
-
-                  <div className="mt-auto pt-4">
-                    <div className="border-t border-[#111c49]/10 pt-4">
-                      {design.slug ? (
-                        <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#111c49] group-hover:text-[#ab8742] transition-colors">
-                          View design
-                          <ArrowRight
-                            className="h-4 w-4 transition-transform motion-safe:group-hover:translate-x-0.5"
-                            aria-hidden="true"
-                          />
-                        </span>
-                      ) : listing ? (
-                        <span className="text-sm font-bold text-[#111c49]">
-                          {listing.price}
-                        </span>
-                      ) : (
-                        <span className="text-sm text-[#64656c]">Plans available on request</span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </>
-            );
-
-            const shell =
-              "group flex flex-col rounded-xl border border-[#111c49]/10 bg-white overflow-hidden transition-all duration-300 hover:shadow-[0_12px_32px_-12px_rgba(17,28,73,0.28)] hover:border-[#ab8742]/40 motion-safe:hover:-translate-y-1";
-
-            const href = listing
-              ? null
-              : design.slug
-                ? `/house-designs/${design.slug}`
-                : null;
-
-            return href ? (
-              <Link
-                key={design.id}
-                href={href}
-                className={`${shell} focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ab8742] focus-visible:ring-offset-2`}
-              >
-                {card}
-              </Link>
-            ) : (
-              <div key={design.id} className={shell}>
-                {card}
-              </div>
-            );
-          })}
+      {/* Gallery */}
+      <section id="project-gallery" className="scroll-mt-24 border-t border-brand-gray-light bg-brand-cream/40 py-16">
+        <div className="mx-auto max-w-[1600px] px-3">
+          <ProjectsFilter />
         </div>
-      </div>
+      </section>
 
-      <section className="border border-brand-gray-light bg-brand-gray-light py-10 text-center sm:py-12">
+      {/* Capabilities */}
+      <section className="relative overflow-hidden bg-brand-navy py-16 text-white">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">
+            A Focused Residential Capability
+          </p>
+          <h2 className="mt-3 max-w-2xl font-serif text-3xl font-bold sm:text-4xl">
+            Different Formats.
+            <br />
+            <span className="italic text-brand-orange">One Accountable Team.</span>
+          </h2>
+
+          <ul className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {CAPABILITIES.map((item) => (
+              <li
+                key={item.number}
+                className="rounded-xl border border-white/15 bg-white/5 p-5"
+              >
+                <span className="text-sm font-bold text-brand-orange">
+                  {item.number}
+                </span>
+                <p className="mt-2 font-serif text-lg font-bold">{item.label}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="bg-brand-gray-light py-16 text-center">
         <div className="mx-auto max-w-2xl px-6">
-          <h2 className="font-serif text-2xl font-bold text-brand-navy sm:text-3xl">
-            Start Your Project
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">
+            Planning Something Similar?
+          </p>
+          <h2 className="mt-3 font-serif text-2xl font-bold text-brand-navy sm:text-3xl">
+            Bring Us the Site.
+            <br />
+            <span className="italic">We&apos;ll Help Test What&apos;s Possible.</span>
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-brand-gray">
-            Ready to build a high-yield investor dwelling? Talk to our team
-            about your site and goals.
+            Talk with our Brisbane team about the opportunity, constraints
+            and most useful next step.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-md border border-brand-navy px-6 py-3 text-xs font-bold uppercase tracking-wide text-brand-navy transition-colors hover:bg-brand-navy hover:text-white"
+            <a
+              href={mailto("Discuss a new residential project")}
+              className="inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-orange/90"
             >
-              Speak to an Expert
-              <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 5.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L12.586 11H4a1 1 0 1 1 0-2h8.586l-2.293-2.293a1 1 0 0 1 0-1.414Z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </Link>
+              Start a Conversation
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
           </div>
         </div>
       </section>
