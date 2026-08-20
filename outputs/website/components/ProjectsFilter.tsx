@@ -15,8 +15,6 @@ interface Project {
   id: string;
   title: string;
   category: string;
-  width: number;
-  height: number;
   image?: string;
   gallery?: LightboxImage[];
 }
@@ -26,8 +24,6 @@ const PROJECTS: Project[] = [
     id: "01",
     title: "Project 01",
     category: "Rooming Accommodation",
-    width: 1043,
-    height: 570,
     image: "/images/33-cardiff/front.webp",
     gallery: [
       { src: "/images/33-cardiff/front.webp", alt: "33 Cardiff — front exterior" },
@@ -39,10 +35,10 @@ const PROJECTS: Project[] = [
       { src: "/images/33-cardiff/utility.webp", alt: "33 Cardiff — utility area" },
     ],
   },
-  { id: "02", title: "Project 02", category: "Rooming Accommodation", width: 509, height: 570 },
-  { id: "03", title: "Project 03", category: "Rooming Accommodation", width: 641, height: 450 },
-  { id: "04", title: "Project 04", category: "Dual Occupancy", width: 911, height: 450 },
-  { id: "05", title: "Project 05", category: "Prefabricated Homes", width: 1552, height: 570 },
+  { id: "02", title: "Project 02", category: "Rooming Accommodation" },
+  { id: "03", title: "Project 03", category: "Rooming Accommodation" },
+  { id: "04", title: "Project 04", category: "Dual Occupancy" },
+  { id: "05", title: "Project 05", category: "Prefabricated Homes" },
 ];
 
 export default function ProjectsFilter() {
@@ -93,9 +89,10 @@ export default function ProjectsFilter() {
         </span>
       </div>
 
-      <div className="mt-10 flex flex-wrap gap-6">
-        {visible.map((project) => {
+      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        {visible.map((project, index) => {
           const hasGallery = Boolean(project.gallery?.length);
+          const isLastOdd = visible.length % 2 === 1 && index === visible.length - 1;
 
           const tile = (
             <>
@@ -134,14 +131,14 @@ export default function ProjectsFilter() {
             </>
           );
 
-          const tileClassName =
-            "group relative overflow-hidden rounded-xl bg-brand-cream transition-all duration-300 hover:-translate-y-1";
+          const tileClassName = `group relative aspect-[4/3] overflow-hidden rounded-xl bg-brand-cream transition-all duration-300 hover:-translate-y-1 ${
+            isLastOdd ? "sm:col-span-2" : ""
+          }`;
 
           return hasGallery ? (
             <button
               key={project.id}
               type="button"
-              style={{ width: project.width, height: project.height, maxWidth: "100%" }}
               className={`${tileClassName} text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2`}
               aria-label={`View ${project.title}`}
               onClick={() => {
@@ -152,11 +149,7 @@ export default function ProjectsFilter() {
               {tile}
             </button>
           ) : (
-            <div
-              key={project.id}
-              style={{ width: project.width, height: project.height, maxWidth: "100%" }}
-              className={tileClassName}
-            >
+            <div key={project.id} className={tileClassName}>
               {tile}
             </div>
           );
