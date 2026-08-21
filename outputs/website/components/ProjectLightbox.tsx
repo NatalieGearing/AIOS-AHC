@@ -14,6 +14,8 @@ export interface LightboxProject {
   category: string;
   location: string;
   description?: string;
+  basedOnDesign?: { label: string; href: string };
+  colourScheme?: { label: string; href: string };
   images: LightboxImage[];
 }
 
@@ -112,6 +114,28 @@ export default function ProjectLightbox({
           {project.description ? (
             <p className="mt-6 text-sm leading-relaxed text-brand-gray">
               {project.description}
+            </p>
+          ) : null}
+          {project.basedOnDesign ? (
+            <p className="mt-3 text-sm leading-relaxed text-brand-gray">
+              This design is based on our{" "}
+              <a
+                href={project.basedOnDesign.href}
+                className="font-semibold text-brand-orange hover:underline"
+              >
+                {project.basedOnDesign.label} design
+              </a>
+              {project.colourScheme ? (
+                <>
+                  {" "}in the{" "}
+                  <a
+                    href={project.colourScheme.href}
+                    className="font-semibold text-brand-orange hover:underline"
+                  >
+                    {project.colourScheme.label} colour scheme
+                  </a>
+                </>
+              ) : null}
             </p>
           ) : null}
         </div>

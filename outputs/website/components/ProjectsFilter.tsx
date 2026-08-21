@@ -15,6 +15,7 @@ interface Project {
   id: string;
   title: string;
   category: string;
+  location?: string;
   image?: string;
   gallery?: LightboxImage[];
 }
@@ -22,8 +23,9 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     id: "01",
-    title: "Project 01",
+    title: "33 Cardiff Rd",
     category: "Rooming Accommodation",
+    location: "Darra",
     image: "/images/33-cardiff/front.webp",
     gallery: [
       { src: "/images/33-cardiff/front.webp", alt: "33 Cardiff — front exterior" },
@@ -96,18 +98,17 @@ export default function ProjectsFilter() {
 
           const tile = (
             <>
-              {project.image ? (
-                <>
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} — exterior`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-900/55 to-brand-orange/10" />
-                </>
-              ) : (
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-brand-gray/50">
+              {project.image && (
+                <Image
+                  src={project.image}
+                  alt={`${project.title} — exterior`}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-r from-stone-950/85 via-stone-900/55 to-brand-orange/10" />
+              {!project.image && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-white/60">
                   <ImageIcon className="size-10" aria-hidden="true" />
                   <span className="text-xs font-medium uppercase tracking-wide">
                     Image coming soon
@@ -126,7 +127,7 @@ export default function ProjectsFilter() {
                 <h3 className="mt-1 font-serif text-xl font-bold leading-snug text-white">
                   {project.title}
                 </h3>
-                <p className="mt-1 text-sm text-white/80">South East Queensland</p>
+                <p className="mt-1 text-sm text-white/80">{project.location ?? "South East Queensland"}</p>
               </div>
             </>
           );
@@ -161,9 +162,11 @@ export default function ProjectsFilter() {
           project={{
             title: openProject.title,
             category: openProject.category,
-            location: "South East Queensland",
+            location: openProject.location ?? "South East Queensland",
             description:
-              "A completed Affordable House Corp rooming accommodation project.",
+              "A completed Affordable House Corp rooming accommodation project with 5 individual rentable rooms across two storeys.",
+            basedOnDesign: { label: "Claymead", href: "#" },
+            colourScheme: { label: "Classic", href: "#" },
             images: openProject.gallery,
           }}
           activeIndex={activeImageIndex}
